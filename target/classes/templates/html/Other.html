@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Other</title>
+<head th:replace="~{fragments/head :: head}">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Дополнительные стили для футера */
+    .footer-bottom {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 60px; /* Высота футера */
+      line-height: 60px; /* Выравнивание текста по вертикали */
+      background-color: #3b3b3b;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  </style>
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+<div class="container mt-5">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <h2>О разработчиках</h2>
+      <p>Наши разработчики - это команда профессионалов, специализирующихся в области социальной инженерии и технологий. Каждый из них имеет уникальный набор навыков и опыта, которые помогают им предоставлять качественный контент и услуги на нашем форуме.</p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <h2>О проекте</h2>
+      <p>Добро пожаловать на форум социальной инженерии, где мы объединяем людей, занимающихся социальной инженерией и технологиями. Здесь вы найдете информацию, обсуждения, ресурсы и сообщество, которые помогут вам развивать свои навыки, учиться новому и совершенствовать свои знания в области социальной инженерии.</p>
+      <p>Наш форум предназначен для профессионалов, студентов, начинающих специалистов и всех, кто интересуется социальной инженерией и ее применением в различных сферах, от социальных сетей до исследований и разработок в области персональных данных.</p>
+      <p>Мы приглашаем всех, кто заинтересован в развитии этого поля, и готовы помочь друг другу в этом. Присоединяйтесь к нам и начинайте свое путешествие в мир социальной инженерии!</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Внешние группы</h2>
+      <p>
+        <a href="https://t.me/+oDFHRDONF-1kODhi">Telegram</a><br>
+      </p>
+    </div>
+  </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

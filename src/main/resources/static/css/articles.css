@@ -1,0 +1,96 @@
+
+.mini-profile-block {
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.user-login {
+    margin-left: 10px; /* или другое значение, чтобы установить нужный отступ между иконкой и именем пользователя */
+}
+
+.category-container {
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    float: left; /* Выравнивание блока с темами по левому краю */
+    margin-right: 20px; /* Отступ справа для разделения блоков */
+}
+
+.category-link {
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.category-link:hover {
+    background-color: #555555;
+}
+
+.category-title {
+    margin-right: 10px;
+}
+
+.expand-icon {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.sub-categories {
+    display: none;
+    padding-left: 20px;
+    border-top: 1px solid #555555;
+    background-color: #444444;
+}
+
+.sub-categories a {
+    color: #bbbbbb;
+    display: block;
+    padding: 8px 0;
+}
+
+.sub-categories a:hover {
+    color: white;
+}
+
+.collapse.show + .sub-categories {
+    display: block;
+}
+
+.collapse {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.category-title {
+    color: #a19a9a;
+}
+.category-link a:hover {
+    text-decoration: none;
+}
+
+/* Стили для вывода статей */
+.article-container {
+    float: left; /* Помещение блока со статьями слева от блока с темами */
+    width: calc(100% - 300px); /* ширина блока со статьями */
+}
+
+/*
+.search-field {
+    width: calc(100% - 60px);
+    margin-bottom: 20px; !* Отступ снизу для разделения блоков *!
+}
+
+.mini-profile-block {
+    margin-left: auto; !* Помещение блока с минипрофилем справа *!
+}*/
+.media {
+    padding-bottom: 5px;
+    padding-top: 10px;
+}

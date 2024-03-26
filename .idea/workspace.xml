@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="git init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Component/CurrentUserUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/ChatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SendMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatMessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatRoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/CommentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ExceptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/OpenChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Exception/CommentSavingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Exception/InvalidCommentException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatRoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ChatMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ChatNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/ChatRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Comments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/MessageStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/SearchResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/UserStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CategoryRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatMessageRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatNotificationRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatRoomRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CommentsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/NewsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/M.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/comment.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/dropDownMenu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/o3F.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/articles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/302.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/303.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/403.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/add-category-in-articles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/com.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/support.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-article.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-articles-category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/SpringSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ArticlesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ArticlesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Articles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Articles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ArticlesRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ArticlesRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/add-users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/add-users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/edit-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/edit-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tests/test-one-about-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tests/test-one-about-me.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2QmznzNMMiiCWB9b118ru3Oeb7Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/qwerq/Documents/messages/forum&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d2a57dc1d883fd21fb9951699df71cc7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.demo.Exception" />
+      <recent name="com.example.demo.Service" />
+      <recent name="com.example.demo.Config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qwerq\Documents\messages\webApp\uploads" />
+      <recent name="C:\Users\qwerq\Documents\messages\webApp\src\main\resources\templates\php" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\qwerq\Documents\messages\forum\src\main\resources\static\img" />
+      <recent name="C:\Users\qwerq\Documents\messages\forum" />
+      <recent name="C:\Users\qwerq\Documents\messages\webApp\src\main\resources\templates" />
+      <recent name="C:\Users\qwerq\Documents\messages\webApp\src\main\resources\templates\html\fragments" />
+      <recent name="C:\Users\qwerq\Documents\messages\webApp\src\main\resources\templates\html" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.demo.Config" />
+      <recent name="com.example.demo.Impl" />
+      <recent name="com.example.demo.Service" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.StarterWebApp">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #57" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="57" requestIdentifier="#57" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #59" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="59" requestIdentifier="#59" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #61" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="61" requestIdentifier="#61" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #62" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="62" requestIdentifier="#62" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="StarterWebApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.StarterWebApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #62" />
+        <item itemvalue="HTTP Request.generated-requests | #57" />
+        <item itemvalue="HTTP Request.generated-requests | #61" />
+        <item itemvalue="HTTP Request.generated-requests | #59" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\qwerq\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="" />
+      <created>1685973716193</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685973716193</updated>
+      <workItem from="1685973717190" duration="8435000" />
+      <workItem from="1686134213152" duration="27000" />
+      <workItem from="1689622537464" duration="1806000" />
+      <workItem from="1690068959061" duration="18000" />
+      <workItem from="1694910637092" duration="600000" />
+      <workItem from="1695206839429" duration="1751000" />
+      <workItem from="1695212494098" duration="1101000" />
+      <workItem from="1696966541141" duration="9112000" />
+      <workItem from="1697022175008" duration="40000" />
+      <workItem from="1697022222396" duration="1576000" />
+      <workItem from="1697211264151" duration="2829000" />
+      <workItem from="1697307081069" duration="7090000" />
+      <workItem from="1697368251642" duration="3753000" />
+      <workItem from="1697474859435" duration="3710000" />
+      <workItem from="1697541298017" duration="12094000" />
+      <workItem from="1697607553205" duration="9403000" />
+      <workItem from="1697876618279" duration="15576000" />
+      <workItem from="1697970741529" duration="534000" />
+      <workItem from="1697971283898" duration="5525000" />
+      <workItem from="1698145168207" duration="1027000" />
+      <workItem from="1698146208635" duration="22000" />
+      <workItem from="1698146252133" duration="1220000" />
+      <workItem from="1698148360026" duration="8956000" />
+      <workItem from="1698161351244" duration="6528000" />
+      <workItem from="1698241593799" duration="7572000" />
+      <workItem from="1698320537939" duration="4620000" />
+      <workItem from="1698398161550" duration="27462000" />
+      <workItem from="1698443291261" duration="1219000" />
+      <workItem from="1698577116106" duration="471000" />
+      <workItem from="1698612058606" duration="383000" />
+      <workItem from="1698836676828" duration="2230000" />
+      <workItem from="1699390444463" duration="648000" />
+      <workItem from="1699441948929" duration="1560000" />
+      <workItem from="1699550817155" duration="2862000" />
+      <workItem from="1699557641582" duration="689000" />
+      <workItem from="1699625694746" duration="3149000" />
+      <workItem from="1699696050022" duration="6434000" />
+      <workItem from="1699915085716" duration="1406000" />
+      <workItem from="1699957362343" duration="622000" />
+      <workItem from="1699978678021" duration="2973000" />
+      <workItem from="1699994583058" duration="1603000" />
+      <workItem from="1700039595801" duration="2926000" />
+      <workItem from="1700474851684" duration="8723000" />
+      <workItem from="1700496011316" duration="2372000" />
+      <workItem from="1700571193228" duration="34000" />
+      <workItem from="1700996288957" duration="762000" />
+      <workItem from="1701701152917" duration="42000" />
+      <workItem from="1701703043270" duration="2476000" />
+      <workItem from="1702384148735" duration="5000" />
+      <workItem from="1702387148449" duration="2977000" />
+      <workItem from="1702399315256" duration="6059000" />
+      <workItem from="1702460342514" duration="22337000" />
+      <workItem from="1702497563863" duration="379000" />
+      <workItem from="1702497983616" duration="1786000" />
+      <workItem from="1702500393658" duration="3837000" />
+      <workItem from="1702987421497" duration="7178000" />
+      <workItem from="1703074394891" duration="3785000" />
+      <workItem from="1703170737951" duration="3401000" />
+      <workItem from="1703233386546" duration="5231000" />
+      <workItem from="1704267978277" duration="4878000" />
+      <workItem from="1704359865278" duration="6631000" />
+      <workItem from="1704376933975" duration="8285000" />
+      <workItem from="1704444752091" duration="15025000" />
+      <workItem from="1704530322989" duration="16423000" />
+      <workItem from="1704623390226" duration="8651000" />
+      <workItem from="1705577147030" duration="14178000" />
+      <workItem from="1705653843762" duration="10253000" />
+      <workItem from="1705670721529" duration="1167000" />
+      <workItem from="1705694852194" duration="2126000" />
+      <workItem from="1705748615140" duration="724000" />
+      <workItem from="1705755011886" duration="6337000" />
+      <workItem from="1705762651033" duration="1020000" />
+      <workItem from="1705827618904" duration="3300000" />
+      <workItem from="1705925479634" duration="1856000" />
+      <workItem from="1705927353934" duration="1800000" />
+      <workItem from="1706094099682" duration="8392000" />
+      <workItem from="1706173588024" duration="12111000" />
+      <workItem from="1706261419531" duration="11397000" />
+      <workItem from="1706345081468" duration="26636000" />
+      <workItem from="1706388522850" duration="4542000" />
+      <workItem from="1706429987444" duration="14724000" />
+      <workItem from="1706534947030" duration="18000" />
+      <workItem from="1706535625266" duration="13223000" />
+      <workItem from="1706560772202" duration="1159000" />
+      <workItem from="1706612865719" duration="9268000" />
+      <workItem from="1706698252787" duration="16028000" />
+      <workItem from="1706785223957" duration="2277000" />
+      <workItem from="1706856981410" duration="5350000" />
+      <workItem from="1706958384592" duration="2562000" />
+      <workItem from="1706969936402" duration="256000" />
+      <workItem from="1707046825563" duration="1692000" />
+      <workItem from="1707162119863" duration="3447000" />
+      <workItem from="1707232998110" duration="10488000" />
+      <workItem from="1707312296047" duration="20721000" />
+      <workItem from="1707391450850" duration="16173000" />
+      <workItem from="1707641806615" duration="4257000" />
+      <workItem from="1707671206870" duration="2526000" />
+      <workItem from="1707738595245" duration="1412000" />
+      <workItem from="1707837403974" duration="1125000" />
+      <workItem from="1707908016649" duration="613000" />
+      <workItem from="1708263964734" duration="8203000" />
+      <workItem from="1708370524432" duration="33000" />
+      <workItem from="1708371137303" duration="332000" />
+      <workItem from="1708371721580" duration="987000" />
+      <workItem from="1708410911998" duration="15000" />
+      <workItem from="1708414885067" duration="41000" />
+      <workItem from="1708415680412" duration="1800000" />
+      <workItem from="1708460079893" duration="98000" />
+      <workItem from="1708464226125" duration="663000" />
+      <workItem from="1708514328780" duration="8052000" />
+      <workItem from="1708530188303" duration="942000" />
+      <workItem from="1708767834221" duration="49000" />
+      <workItem from="1708768096850" duration="20000" />
+      <workItem from="1708770142031" duration="31000" />
+      <workItem from="1708793889177" duration="626000" />
+      <workItem from="1708808207798" duration="9334000" />
+      <workItem from="1708856917423" duration="5681000" />
+      <workItem from="1708962100400" duration="11657000" />
+      <workItem from="1709033958581" duration="614000" />
+      <workItem from="1709037348827" duration="16000" />
+      <workItem from="1709066064786" duration="391000" />
+      <workItem from="1709066717493" duration="275000" />
+      <workItem from="1709097944205" duration="39000" />
+      <workItem from="1709133490566" duration="11533000" />
+      <workItem from="1709229966468" duration="4072000" />
+      <workItem from="1709287764384" duration="711000" />
+      <workItem from="1709363207949" duration="185000" />
+      <workItem from="1709363840641" duration="877000" />
+      <workItem from="1709364729248" duration="1161000" />
+      <workItem from="1709457373761" duration="1092000" />
+      <workItem from="1709460528346" duration="7027000" />
+      <workItem from="1709579238851" duration="60000" />
+      <workItem from="1709579311607" duration="3900000" />
+      <workItem from="1709742034156" duration="2083000" />
+      <workItem from="1710059462696" duration="10871000" />
+      <workItem from="1710234558371" duration="3469000" />
+      <workItem from="1710335649209" duration="9373000" />
+      <workItem from="1710580750866" duration="4212000" />
+      <workItem from="1710768758578" duration="608000" />
+      <workItem from="1710839129865" duration="7711000" />
+      <workItem from="1710851839679" duration="994000" />
+      <workItem from="1710940175242" duration="6336000" />
+      <workItem from="1711012669820" duration="2723000" />
+      <workItem from="1711098663658" duration="21830000" />
+      <workItem from="1711136441458" duration="310000" />
+      <workItem from="1711189793069" duration="21178000" />
+      <workItem from="1711293001820" duration="3449000" />
+      <workItem from="1711363490003" duration="2596000" />
+      <workItem from="1711451268277" duration="12207000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git init" />
+    <option name="LAST_COMMIT_MESSAGE" value="git init" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.twilio.exception.AuthenticationException" package="com.twilio.exception" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.demo.Model.User" memberName="filename" />
+        <PinnedItemInfo parentTag="com.example.demo.Entity.UserEntity" memberName="confirm_password" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="user.publishNewsProfile" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

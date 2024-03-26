@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Articles</title>
+<head th:replace="~{fragments/head :: head}"></head>
+<header th:replace="~{fragments/header :: header}"></header>
+<body>
+<div class="container mt-5">
+  <div class="category-container">
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#createArticleModal">
+      Добавить новость
+    </button>
+
+    <h5>Основные темы</h5>
+    <div class="category-link">
+      <a th:href="@{/articles}">
+        <span class="category-title">Все темы</span>
+      </a>
+    </div>
+    <div th:each="category : ${categories}" class="category-link">
+      <a th:href="@{/articles-in-category/{categoryId}(categoryId=${category.id})}">
+        <span class="category-title" th:text="${category.name}"></span>
+      </a>
+    </div>
+    <!-- Мини-профиль пользователя -->
+    <div th:if="${user != null}" class="mini-profile-block">
+      <img th:src="@{'/uploads/' + ${user.filename}}" type="image/x-icon" class="mini-profile-avatar rounded-circle"
+           style="
+           width: 40px;
+           height: 40px;
+           object-fit: cover;
+           border-radius: 50%;">
+      <span class="user-login" th:text="${user.username}"></span>
+    </div>
+  </div>
+
+  <div class="article-container">
+    <h6 th:if="${selectedCategory != null}" th:text="'Тематическая категория: ' + ${selectedCategory.name}"></h6>
+    <div class="mb-3">
+      <input type="text" class="form-control search-field" placeholder="Поиск...">
+    </div>
+    <ul class="list-unstyled">
+      <li th:each="article : ${articles}" class="media">
+        <div class="media-body">
+          <div class="row">
+            <div class="col-6">
+              <a th:href="@{'/article/' + ${article.id}}">
+                <h5 class="mt-0 mb-1" th:text="${article.title}"></h5>
+              </a>
+              <p>Автор: <span th:text="${article.user.username}"></span></p>
+            </div>
+            <div class="col-6 text-right">
+              <!-- Мини-профиль -->
+              <div class="mini-profile-block">
+                <img th:src="@{'/uploads/' + ${article.user.filename}}" type="image/x-icon" class="mini-profile-avatar rounded-circle"
+                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+                <span class="user-login" th:text="${article.user.username}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Модальное окно для создания новости -->
+<div class="modal fade" id="createArticleModal" tabindex="-1" role="dialog" aria-labelledby="createArticleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createArticleModalLabel">Добавить новость</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/save-article}" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="articleTitle">Заголовок новости</label>
+            <input type="text" class="form-control" id="articleTitle" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="articleDescription">Описание новости</label>
+            <textarea class="form-control" id="articleDescription" name="description" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="articleFile">Файл новости</label>
+            <input type="file" class="form-control-file" id="articleFile" name="file">
+          </div>
+          <div class="form-group">
+            <label for="articleCategory">Категория новости</label>
+            <select class="form-control" id="articleCategory" name="categoryId" required>
+              <option value="">Выберите категорию</option>
+              <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+          </div>
+          <!-- Добавление тегов -->
+          <div class="form-group">
+            <label for="tags">Теги новости (разделенные запятой)</label>
+            <input type="text" class="form-control" id="tags" name="tags">
+          </div>
+          <button type="submit" class="btn btn-primary">Создать новость</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

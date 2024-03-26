@@ -1,0 +1,80 @@
+POST http://localhost:6066/upload
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=BE252C7C1773524469259BCC24C03FCF
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T141032.200.html
+
+###
+
+GET http://localhost:6066/login
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=BE252C7C1773524469259BCC24C03FCF
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T141009.200.html
+
+###
+
+POST http://localhost:6066/upload
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=BE252C7C1773524469259BCC24C03FCF; XDEBUG_SESSION=12491
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T140948.200.html
+
+###
+
+POST http://localhost:6066/upload
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=BE252C7C1773524469259BCC24C03FCF
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T140946.200.html
+
+###
+
+POST http://localhost:6066/upload
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=BE252C7C1773524469259BCC24C03FCF
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T140937.200.html
+
+###
+
+POST http://localhost:6066/profile/updateAvatar
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=A6791481F93165F4EC4F37FAE0D54394; XDEBUG_SESSION=18351
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T123258.200.html
+
+###
+
+POST http://localhost:6066/profile/updateAvatar
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=A6791481F93165F4EC4F37FAE0D54394
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-01-05T123251.200.html
+
+###
+
+POST http://localhost:6606/register
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-10-10T235757.400.json
+
+###
+

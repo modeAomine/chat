@@ -1,0 +1,129 @@
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-news p {
+    background-color: #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-custom {
+    background-color: #b8b8ff;
+    border-color: #b8b8ff;
+    color: #000000;
+}
+.btn-custom:hover {
+    background-color: #a5a5ff; /* Цвет становится темнее при наведении */
+    border-color: #a5a5ff; /* Цвет обводки также меняется */
+    color: #000000; /* Цвет текста становится черным */
+}
+/* Стили для выпадающего меню */
+.dropdown-menu {
+    display: none;
+}
+
+.comment-wrapper:hover .dropdown-menu {
+    display: block;
+}
+.delete-comment-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.delete-comment-link {
+    color: #3b3b3b; /* Цвет текста ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.delete-comment-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Скрываем кнопку удаления комментария */
+.delete-comment-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/* Показываем кнопку при наведении на родительский элемент */
+.comment-container:hover .delete-comment-btn {
+    display: inline-block;
+}
+
+/* Стили для блока новости */
+/* Стили для блока новости */
+.news-block li {
+    position: relative; /* Добавляем относительное позиционирование */
+    background-color: #3b3b3b;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+/* Стили для кнопки удаления новости */
+.delete-news-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.delete-news-link {
+    display: block;
+    padding: 5px;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Стили для текстовой ссылки удаления новости */
+.delete-news-text {
+    display: none; /* По умолчанию скрываем текстовую ссылку */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 14px;
+    color: rgba(218, 213, 213, 0.51);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Показываем текстовую ссылку при наведении курсора на блок новости */
+.news-block li:hover .delete-news-text {
+    display: inline;
+}
+.delete-news-form {
+    display: none; /* Скрываем форму */
+}
+
+
+

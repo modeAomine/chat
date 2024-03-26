@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Registration</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('../../static/img/o3F.gif') no-repeat center center fixed;
+      background-size: cover;
+      /*filter: blur(10px);*/
+    }
+/*    .image {
+      background: url('../../static/img/o3F.gif') no-repeat center center fixed;
+      filter: blur(10px);
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+    }*/
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.80); /* Затемненный фон формы */
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px; /* Максимальная ширина формы */
+      width: 100%; /* Ширина формы на мобильных устройствах */
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1); /* Прозрачный цвет для формы */
+      color: #fff; /* Белый цвет текста в форме */
+      border: 1px solid rgba(255, 255, 255, 0.5); /* Белая обводка для полей ввода */
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.3); /* Прозрачный цвет для активного поля */
+    }
+
+    .btn-primary {
+      background-color: #403f41; /* Цвет кнопки */
+      border-color: #403F41FF; /* Цвет рамки нкопки */
+    }
+
+    .btn-primary:hover {
+      background-color: #282828FF; /* Цвет кнопки при наведении */
+      border-color: #282828FF; /* Цвет рамки кнопки при наведении */
+    }
+
+    .authorization__info a {
+      color: #ccc; /* Цвет ссылки */
+    }
+
+    .authorization__info a:hover {
+      color: #fff; /* Цвет ссылки при наведении */
+    }
+
+  </style>
+</head>
+<body>
+<div class="image" style="width: 100%; height: 100%" th:src="@{/img/o3F.gif}"></div>
+<div class="container">
+  <h2 class="text-center mb-4">Registration</h2>
+  <form th:action="@{/registration}" method="post" class="needs-validation" novalidate>
+    <div class="form-group">
+      <input type="text" class="form-control" id="login" name="username" placeholder="Login" required>
+      <div class="invalid-feedback">
+        Please provide a valid login.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      <div class="invalid-feedback">
+        Please provide a valid password.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+      <div class="invalid-feedback">
+        Please provide a valid name.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+      <div class="invalid-feedback">
+        Please provide a valid email.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
+  </form>
+  <p class="authorization__info text-center mt-3">
+    Already have an account? <a th:href="@{/login}">Log in</a>!
+  </p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

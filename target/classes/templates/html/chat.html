@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/head :: head}">
+    <style>
+        .sent {
+            background-color: #DCF8C6;
+            align-self: flex-end; /* Выравнивание отправленных сообщений к правому краю */
+            text-align: left; /* Выравнивание текста по правому краю */
+        }
+
+        .received {
+            background-color: #EAEAEA;
+            align-self: flex-start; /* Выравнивание полученных сообщений к левому краю */
+            text-align: left; /* Выравнивание текста по левому краю */
+        }
+
+        .messages-container {
+            height: 70vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column; /* Добавляем направление сверху вниз */
+        }
+    </style>
+</head>
+<header th:replace="~{fragments/header :: header}"></header>
+<body>
+<div class="container-fluid">
+    <div class="row chat-container">
+        <div class="col-md-3">
+            <div id="users-list" class="list-group">
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div id="chat" class="chat" th:data-username="${user.username}" th:data-recipient-id="${user.id}">
+                <div class="card-header" style="display: none;">Чат с пользователем</div>
+                <div class="card-body messages-container">
+                    <span>Выберите чат для начала общения🥰</span>
+                    <div class="messages-container"></div>
+                </div>
+                <div class="card-footer" style="display: none;">
+                    <div class="input-group">
+                        <input id="user-message" type="text" class="form-control" placeholder="Введите сообщение...">
+                        <input type="hidden" id="sender-id" value="${user.id}" th:value="${user.id}">
+                        <div class="input-group-append">
+                            <button id="send-button" class="btn btn-primary">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+<script th:src="@{/js/chat.js}"></script>
+<script>
+    let stompClient = null; // Глобальная переменная для хранения клиента STOMP WebSocket
+
+    $(function() {
+        const socket = new SockJS('/ws-chat');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+
+            stompClient.subscribe('/user/queue/messages', function(messageOutput) {
+                const message = JSON.parse(messageOutput.body);
+                console.log('New message received:', message);
+                displayMessage(message);
+            });
+
+            // Получаем историю сообщений чата
+            const chatRoomId = $("#chat").data("chat-room-id");
+            loadChatHistory(chatRoomId);
+        });
+    });
+
+    function sendMessage(senderId, recipientId, text, chatRoomId) {
+        if (!stompClient) {
+            console.error('Ошибка: WebSocket-соединение не установлено');
+            return;
+        }
+
+        if (text.trim() === "") {
+            console.error('Ошибка: текст сообщения не может быть пустым');
+            return;
+        }
+
+        let data = {
+            senderId: senderId,
+            recipientId: recipientId,
+            chatRoomId: chatRoomId,
+            text: text
+        };
+
+        console.log('Текст сообщения:', text);
+
+        stompClient.send("/app/send", {}, JSON.stringify(data));
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadUsersFromServer();
+
+        function loadUsersFromServer() {
+            fetch('/chat/users')
+                .then(response => response.json())
+                .then(usernames => {
+                    let userList = document.getElementById('users-list');
+                    userList.innerHTML = '';
+                    Object.keys(usernames).forEach(username => {
+                        let userItem = document.createElement('button');
+                        userItem.textContent = username;
+                        userItem.setAttribute('data-userid', usernames[username]);
+                        userItem.classList.add('list-group-item', 'list-group-item-action');
+                        userItem.addEventListener('click', function () {
+                            openChat(userItem.textContent, userItem.getAttribute('data-userid'));
+                        });
+                        userList.appendChild(userItem);
+                    });
+                })
+                .catch(error => console.error('ошибка получения списка пользователей:', error));
+        }
+
+        let currentSubscription = null; // Глобальная переменная для хранения текущей подписки
+        let currentChatRoomId = null; // Глобальная переменная для хранения идентификатора текущего чата
+
+        function openChat(username, recipientId) {
+            const chatWindow = document.getElementById('chat');
+            const newRecipientId = recipientId;
+
+            $.ajax({
+                url: '/generate-chat-id',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ senderId: $("#sender-id").val(), recipientId: newRecipientId }),
+                success: function(response) {
+                    const newChatRoomId = response.chatId;
+
+                    // Если открытый чат не совпадает с новым, отписываемся от текущего и подписываемся на новый
+                    if (newChatRoomId !== currentChatRoomId) {
+                        if (currentSubscription) {
+                            currentSubscription.unsubscribe();
+                        }
+
+                        currentSubscription = stompClient.subscribe('/topic/messages/' + newChatRoomId, function (messageOutput) {
+                            const response = JSON.parse(messageOutput.body);
+                            console.log('История сообщений чата:', response);
+                            if (Array.isArray(response)) {
+                                response.forEach(function (message) {
+                                    displayMessage(message);
+                                });
+                            } else {
+                                displayMessage(response);
+                            }
+                        });
+
+                        currentChatRoomId = newChatRoomId;
+                    }
+
+                    chatWindow.querySelector('.card-header').style.display = 'block';
+                    chatWindow.querySelector('.card-header').textContent = 'Чат с ' + username;
+                    chatWindow.setAttribute('data-username', username);
+                    chatWindow.setAttribute('data-recipient-id', newRecipientId);
+                    chatWindow.setAttribute('data-chat-room-id', newChatRoomId);
+                    chatWindow.querySelector('.card-footer').style.display = 'block';
+                    chatWindow.querySelector('.card-body').innerHTML = '';
+
+                    $("#chat").data("recipient-id", newRecipientId);
+                    $("#chat").data("chat-room-id", newChatRoomId);
+
+                    loadChatHistory(newChatRoomId); // Загрузка истории чата
+                    loadAllMessages(newChatRoomId);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Ошибка получения идентификатора чата:', error);
+                }
+            });
+        }
+        function loadAllMessages(chatRoomId) {
+            fetch('/list/' + chatRoomId)
+                .then(response => response.json())
+                .then(messages => {
+                    messages.forEach(message => {
+                        displayMessage(message);
+                    });
+                })
+                .catch(error => console.error('Ошибка получения сообщений чата:', error));
+        }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $("#send-button").click(function() {
+            let text = $("#user-message").val();
+            let recipientId = $("#chat").data("recipient-id");
+            let senderId = $("#sender-id").val();
+            let chatRoomId = $("#chat").data("chat-room-id");
+            sendMessage(senderId, recipientId, text, chatRoomId);
+            $("#user-message").val("");
+        });
+    });
+</script>
+</body>
+</html>
