@@ -55,8 +55,6 @@ public class SettingsController {
         }
     }
 
-
-
     @PostMapping("/settings/updateDiscord")
     @ResponseBody
     public ResponseEntity<User> updateDiscord(@RequestBody User user) {
@@ -70,7 +68,6 @@ public class SettingsController {
         }
     }
 
-
     @PostMapping("/settings/updateLogin")
     @ResponseBody
     public ResponseEntity<User> updateLogin(@RequestBody User user) {
@@ -83,7 +80,6 @@ public class SettingsController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-
 
     @PostMapping("/settings/updatePassword")
     @ResponseBody
@@ -99,7 +95,6 @@ public class SettingsController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-
 
     @PostMapping("/settings/updateEmail")
     @ResponseBody

@@ -65,19 +65,6 @@ public class ProfileController {
         return new ResponseEntity<>("User not authenticated", HttpStatus.UNAUTHORIZED);
     }
 
-/*    @PostMapping("/profile/publish/news")
-    public ResponseEntity<String> publishNews(@RequestParam String newsContent, HttpServletRequest request) {
-        User currentUser = userService.authUser();
-        if (currentUser != null) {
-            News news = new News();
-            news.setContent(newsContent);
-            userService.addPublishNewsProfile(currentUser, news);
-            return ResponseEntity.ok("News added successfully");
-        }
-        return new ResponseEntity<>("User not authenticated", HttpStatus.UNAUTHORIZED);
-    }*/
-
-
     @PostMapping("/profile/{newsId}/delete")
     public ResponseEntity<String> deleteNews(@PathVariable Long newsId) {
         User currentUser = userService.authUser();

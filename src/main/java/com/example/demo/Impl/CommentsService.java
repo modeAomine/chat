@@ -69,11 +69,5 @@ public class CommentsService {
         }
     }
 
-
-
-
-
-
     public List<Comments> getAll() { return commentsRepo.findAll(); }
 }
-

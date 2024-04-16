@@ -17,5 +17,3 @@ public interface ChatMessageRepo extends JpaRepository<ChatMessage, Long> {
 
     List<ChatMessage> findByChatRoomIdAndTextContainingIgnoreCaseOrderByTimestamp(String chatRoomId, String text);
 }
-
-

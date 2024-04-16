@@ -202,7 +202,6 @@ public class UserService {
         return userRepo.save(user);
     }
 
-
     public User updateUserEmail(Long id, String newEmail) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
@@ -210,14 +209,12 @@ public class UserService {
         return userRepo.save(user);
     }
 
-
     public User updateUserName(Long id, String newName) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
         user.setName(newName);
         return userRepo.save(user);
     }
-
 
     public void registerAuthUser(User user) {
         User existingUser = userRepo.findByUsername(user.getUsername());
@@ -239,7 +236,6 @@ public class UserService {
         userRepo.save(user);
         return user;
     }
-
     public List<User> searchUser(String param, String paramTwo) {
         if (param != null && !param.isEmpty()) {
             return userRepo.findByUsernameContainingIgnoreCaseOrEmailContainingIgnoreCase(param, paramTwo);

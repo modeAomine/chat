@@ -2,28 +2,79 @@
 <html lang="en">
 <head th:replace="~{fragments/head :: head}">
     <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Отключаем вертикальную прокрутку на странице */
+        }
+
+        .container-fluid {
+            height: 100%;
+            overflow: hidden; /* Отключаем вертикальную прокрутку для родительского контейнера */
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 40px); /* Высота чата будет на 100% минус высота заголовка */
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            overflow: hidden; /* Отключаем вертикальную прокрутку внутри чата */
+        }
+
+        .messages-container {
+            flex: 1;
+            height: 0; /* Позволяет контейнеру растягиваться */
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+
         .sent {
             background-color: #DCF8C6;
-            align-self: flex-end; /* Выравнивание отправленных сообщений к правому краю */
-            text-align: left; /* Выравнивание текста по правому краю */
+            align-self: flex-end;
+            text-align: left;
         }
 
         .received {
             background-color: #EAEAEA;
-            align-self: flex-start; /* Выравнивание полученных сообщений к левому краю */
-            text-align: left; /* Выравнивание текста по левому краю */
+            align-self: flex-start;
+            text-align: left;
         }
 
-        .messages-container {
-            height: 70vh;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column-reverse;
+        .username {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .message-container {
+        .text {
+            word-wrap: break-word;
+        }
+
+        .input-container {
             display: flex;
-            flex-direction: column; /* Добавляем направление сверху вниз */
+            align-items: center;
+        }
+
+        .message-input {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .send-button {
+            width: 100px;
         }
     </style>
 </head>
@@ -33,22 +84,21 @@
     <div class="row chat-container">
         <div class="col-md-3">
             <div id="users-list" class="list-group">
-
+                <!-- Список пользователей -->
             </div>
         </div>
         <div class="col-md-9">
-            <div id="chat" class="chat" th:data-username="${user.username}" th:data-recipient-id="${user.id}">
-                <div class="card-header" style="display: none;">Чат с пользователем</div>
-                <div class="card-body messages-container">
-                    <span>Выберите чат для начала общения🥰</span>
-                    <div class="messages-container"></div>
-                </div>
-                <div class="card-footer" style="display: none;">
-                    <div class="input-group">
-                        <input id="user-message" type="text" class="form-control" placeholder="Введите сообщение...">
-                        <input type="hidden" id="sender-id" value="${user.id}" th:value="${user.id}">
-                        <div class="input-group-append">
-                            <button id="send-button" class="btn btn-primary">Отправить</button>
+            <div class="chat-container">
+                <div id="chat" class="chat" th:data-username="${user.username}" th:data-recipient-id="${user.id}">
+                    <div class="card-header" style="display: none;">Чат с пользователем</div>
+                    <div class="card-body messages-container" id="messages-container">
+                        <!-- Здесь будут отображаться сообщения -->
+                    </div>
+                    <div class="card-footer" style="display: none;">
+                        <div class="input-container">
+                            <input id="user-message" type="text" class="form-control message-input" placeholder="Введите сообщение...">
+                            <input type="hidden" id="sender-id" value="${user.id}" th:value="${user.id}">
+                            <button id="send-button" class="btn btn-primary btn-dark send-button">Отправить</button>
                         </div>
                     </div>
                 </div>
@@ -190,8 +240,8 @@
                     });
                 })
                 .catch(error => console.error('Ошибка получения сообщений чата:', error));
-            }
-        });
+        }
+    });
 </script>
 <script>
     $(document).ready(function() {

@@ -2,12 +2,21 @@ function displayMessage(message) {
     const currentUserId = $("#sender-id").val();
     const messageContainer = $(".messages-container");
     const messageElement = $("<div>").addClass("message");
+    const usernameDiv = $("<div>").addClass("username");
+    const textDiv = $("<div>").addClass("text");
     if (message.senderId === currentUserId) {
-        messageElement.addClass("sent").text("Вы: " + message.text);
+        messageElement.addClass("sent");
+        usernameDiv.text("Вы:");
+        textDiv.text(message.text);
     } else if (message.recipientId === currentUserId) {
-        messageElement.addClass("received").text("Получатель: " + message.text);
+        messageElement.addClass("received");
+        usernameDiv.text("Получатель:");
+        textDiv.text(message.text);
     }
+    messageElement.append(usernameDiv, textDiv);
     messageContainer.append(messageElement);
+
+    messageContainer.scrollTop(messageContainer.prop("scrollHeight"));
 }
 
 function loadChatHistory(chatRoomId) {

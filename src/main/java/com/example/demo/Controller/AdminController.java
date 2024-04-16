@@ -42,55 +42,6 @@ public class AdminController {
         return "html/users";
     }
 
-/*    @GetMapping("/search")
-    public String searchUserParam(@RequestParam("username") String username) {
-        User foundUser = userService.findByUsername(username);
-        if (foundUser != null) {
-            return "redirect:/profile/" + foundUser.getUsername();
-        } else {
-            return "redirect:/profile";
-        }
-    }*/
-
-/*    @GetMapping("/search")
-    public RedirectView search(@RequestParam("query") String query, RedirectAttributes attributes) {
-        List<Object> searchResults = userService.search(query);
-
-        // Предполагаем, что первый результат - это то, что нам нужно
-        if (!searchResults.isEmpty()) {
-            Object result = searchResults.get(0);
-            if (result instanceof User) {
-                // Перенаправляем на страницу профиля пользователя
-                attributes.addAttribute("username", ((User) result).getUsername());
-                return new RedirectView("/profile/" + ((User) result).getUsername());
-            } else if (result instanceof Articles) {
-                // Перенаправляем на страницу новости
-                attributes.addAttribute("articleId", ((Articles) result).getId());
-                return new RedirectView("/article/" + ((Articles) result).getId());
-            }
-        }
-
-        // Если ничего не найдено, можно вернуть страницу с ошибкой или на главную
-        return new RedirectView("/");
-    }*/
-
-/*    @GetMapping("/search")
-    public RedirectView search(@RequestParam("query") String query, HttpServletRequest request) {
-        List<Object> searchResults = userService.search(query);
-
-        if (!searchResults.isEmpty()) {
-            Object result = searchResults.get(0);
-            if (result instanceof User) {
-                return new RedirectView("/profile/" + ((User) result).getUsername());
-            } else if (result instanceof Articles) {
-                return new RedirectView("/article/" + ((Articles) result).getId());
-            }
-        }
-
-        String referer = request.getHeader("Referer");
-        return new RedirectView(referer != null ? referer : "/");
-    }*/
-
     @GetMapping("/search")
     @ResponseBody
     public List<com.example.demo.Model.SearchResult> search(@RequestParam("query") String query) {

@@ -6,13 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function() {
         let query = searchInput.value;
         if (query.length > 0) {
-            // Отправляем AJAX-запрос на сервер
             fetch('/search?query=' + encodeURIComponent(query))
                 .then(response => response.json())
                 .then(results => {
-                    // Очищаем предыдущие результаты
                     searchResultsContainer.innerHTML = '';
-                    // Отображаем результаты поиска
                     results.forEach(result => {
                         let resultElement = document.createElement('a');
                         resultElement.classList.add('dropdown-item');
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error('Ошибка при получении результатов поиска:', error);
                 });
         } else {
-            // Очищаем результаты поиска при пустом запросе
             searchResultsContainer.innerHTML = '';
         }
     });
@@ -39,15 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         let query = searchInput.value;
         if (query.length > 0) {
-            // Отправляем AJAX-запрос на сервер
             fetch('/search?query=' + encodeURIComponent(query))
                 .then(response => response.json())
                 .then(results => {
                     if (results.length > 0) {
-                        // Перенаправляем на первый результат поиска
                         window.location.href = results[0].url;
                     } else {
-                        // Если результатов не найдено, можно показать сообщение или выполнить другое действие
                         alert('Результатов не найдено');
                     }
                 })
