@@ -24,20 +24,18 @@
 }
 
 .btn-custom {
-    background-color: #b8b8ff;
-    border-color: #b8b8ff;
-    color: #000000;
+    background-color: #16a085; /* Зеленый цвет кнопки */
+    border-color: #16a085; /* Зеленая рамка кнопки */
+    color: #fff; /* Белый цвет текста кнопки */
 }
 .btn-custom:hover {
-    background-color: #a5a5ff; /* Цвет становится темнее при наведении */
-    border-color: #a5a5ff; /* Цвет обводки также меняется */
-    color: #000000; /* Цвет текста становится черным */
+    background-color: #138d6a; /* Чуть темнее зеленый цвет кнопки при наведении */
+    border-color: #138d6a; /* Чуть темнее зеленая рамка кнопки при наведении */
 }
 /* Стили для выпадающего меню */
 .dropdown-menu {
     display: none;
 }
-
 .comment-wrapper:hover .dropdown-menu {
     display: block;
 }
@@ -48,7 +46,7 @@
 }
 
 .delete-comment-link {
-    color: #3b3b3b; /* Цвет текста ссылки */
+    color: #666; /* Цвет текста ссылки */
     text-decoration: none; /* Убираем подчеркивание */
 }
 
@@ -73,8 +71,6 @@
 .comment-container:hover .delete-comment-btn {
     display: inline-block;
 }
-
-/* Стили для блока новости */
 /* Стили для блока новости */
 .news-block li {
     position: relative; /* Добавляем относительное позиционирование */

@@ -48,6 +48,11 @@
                 object-fit: cover;"
                          type="image/x-icon">
                 </div>
+                <div style="margin-top: 10px;">
+                    <form method="post" th:action="'/sub/' + ${user.getId()} + '/to/' + ${viewuser.id}">
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="profile-info-block text-white">

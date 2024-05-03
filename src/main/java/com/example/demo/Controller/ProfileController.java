@@ -83,40 +83,4 @@ public class ProfileController {
             return new ResponseEntity<>("User not authenticated", HttpStatus.UNAUTHORIZED);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*    @PostMapping("/subscribe")
-    public String subscribe(@RequestParam String targetUsername) {
-        User currentUser = userService.authUser();
-        User targetUser = userService.findByUsername(targetUsername);
-
-        if (currentUser != null && targetUser != null) {
-            userService.subscribe(currentUser);
-        }
-        return "redirect:/profile/" + targetUser.getUsername();
-    }*/
-
-
-/*    @PostMapping("/unsubscribe/{targetUsername}")
-    public String unsubscribe(@PathVariable String targetUsername, Model model) {
-        User currentUser = userService.authUser();
-        User targetUser = userService.findByUsername(targetUsername);
-
-        if (currentUser != null && targetUser != null) {
-            userService.unsubscribe(currentUser, targetUser);
-        }
-        return "redirect:/profile/{username}";
-    }*/
 }

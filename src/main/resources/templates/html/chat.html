@@ -14,20 +14,6 @@
             overflow: hidden; /* Отключаем вертикальную прокрутку для родительского контейнера */
         }
 
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            height: calc(100% - 40px); /* Высота чата будет на 100% минус высота заголовка */
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            overflow: hidden; /* Отключаем вертикальную прокрутку внутри чата */
-        }
-
         .messages-container {
             flex: 1;
             height: 0; /* Позволяет контейнеру растягиваться */
@@ -35,17 +21,9 @@
             margin-bottom: 20px;
         }
 
-        .message {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            max-width: 70%;
-        }
-
         .sent {
-            background-color: #DCF8C6;
-            align-self: flex-end;
-            text-align: left;
+            padding-left: 70%;
+            color: black;
         }
 
         .received {
@@ -134,7 +112,7 @@
         });
     });
 
-    function sendMessage(senderId, recipientId, text, chatRoomId) {
+    function sendMessage(senderId, recipientId, text, chatRoomId, timestamp) {
         if (!stompClient) {
             console.error('Ошибка: WebSocket-соединение не установлено');
             return;
@@ -149,7 +127,8 @@
             senderId: senderId,
             recipientId: recipientId,
             chatRoomId: chatRoomId,
-            text: text
+            text: text,
+            timestamp: timestamp
         };
 
         console.log('Текст сообщения:', text);
@@ -184,15 +163,16 @@
         let currentSubscription = null;
         let currentChatRoomId = null;
 
-        function openChat(username, recipientId) {
+        function openChat(username, recipientId, recipientUsername) {
             const chatWindow = document.getElementById('chat');
             const newRecipientId = recipientId;
+            const newRecipientUsername = recipientUsername;
 
             $.ajax({
                 url: '/generate-chat-id',
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ senderId: $("#sender-id").val(), recipientId: newRecipientId }),
+                data: JSON.stringify({ senderId: $("#sender-id").val(), recipientId: newRecipientId, recipientUsername: newRecipientUsername }),
                 success: function(response) {
                     const newChatRoomId = response.chatId;
                     if (newChatRoomId !== currentChatRoomId) {
@@ -250,7 +230,8 @@
             let recipientId = $("#chat").data("recipient-id");
             let senderId = $("#sender-id").val();
             let chatRoomId = $("#chat").data("chat-room-id");
-            sendMessage(senderId, recipientId, text, chatRoomId);
+            let timestamp = $("#user-message").val();
+            sendMessage(senderId, recipientId, text, chatRoomId, timestamp);
             $("#user-message").val("");
         });
     });

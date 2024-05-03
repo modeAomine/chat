@@ -1,22 +1,33 @@
 function displayMessage(message) {
+    const recipientUsername = $("#chat").data("username");
     const currentUserId = $("#sender-id").val();
     const messageContainer = $(".messages-container");
     const messageElement = $("<div>").addClass("message");
     const usernameDiv = $("<div>").addClass("username");
     const textDiv = $("<div>").addClass("text");
+    const timeDiv = $("<div>").addClass("time-stamp");
     if (message.senderId === currentUserId) {
         messageElement.addClass("sent");
-        usernameDiv.text("Вы:");
+        usernameDiv.text("Вы: ");
         textDiv.text(message.text);
+        timeDiv.text(formatTime(message.timestamp));
     } else if (message.recipientId === currentUserId) {
         messageElement.addClass("received");
-        usernameDiv.text("Получатель:");
+        usernameDiv.text(recipientUsername + ":");
         textDiv.text(message.text);
+        timeDiv.text(formatTime(message.timestamp));
     }
-    messageElement.append(usernameDiv, textDiv);
+    messageElement.append(usernameDiv, textDiv, timeDiv);
     messageContainer.append(messageElement);
 
     messageContainer.scrollTop(messageContainer.prop("scrollHeight"));
+}
+
+function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    const hours = date.getHours().toString().padStart(2, "0"); // Получаем часы
+    const minutes = date.getMinutes().toString().padStart(2, "0"); // Получаем минуты
+    return `${hours}:${minutes}`; // Возвращаем форматированное время
 }
 
 function loadChatHistory(chatRoomId) {

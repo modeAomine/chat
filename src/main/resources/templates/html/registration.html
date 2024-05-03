@@ -10,24 +10,16 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: url('../../static/img/o3F.gif') no-repeat center center fixed;
-      background-size: cover;
-      /*filter: blur(10px);*/
+      background-color: #f2f2f2; /* Светло-серый фон */
+      color: #333; /* Черный текст */
     }
-/*    .image {
-      background: url('../../static/img/o3F.gif') no-repeat center center fixed;
-      filter: blur(10px);
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-    }*/
 
     .container {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.80); /* Затемненный фон формы */
+      background-color: rgba(0, 0, 0, 0.1); /* Прозрачный фон формы */
       padding: 20px;
       border-radius: 10px;
       max-width: 400px; /* Максимальная ширина формы */
@@ -35,39 +27,38 @@
     }
 
     .form-control {
-      background-color: rgba(255, 255, 255, 0.1); /* Прозрачный цвет для формы */
-      color: #fff; /* Белый цвет текста в форме */
-      border: 1px solid rgba(255, 255, 255, 0.5); /* Белая обводка для полей ввода */
+      background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный цвет для формы */
+      color: #333; /* Черный цвет текста в форме */
+      border: 1px solid rgba(0, 0, 0, 0.3); /* Черная обводка для полей ввода */
     }
 
     .form-control:focus {
-      background-color: rgba(255, 255, 255, 0.3); /* Прозрачный цвет для активного поля */
+      background-color: rgba(255, 255, 255, 0.7); /* Чуть менее прозрачный цвет для активного поля */
     }
 
     .btn-primary {
-      background-color: #403f41; /* Цвет кнопки */
-      border-color: #403F41FF; /* Цвет рамки нкопки */
+      background-color: #16a085; /* Зеленый цвет кнопки */
+      border-color: #16a085; /* Зеленая рамка кнопки */
     }
 
     .btn-primary:hover {
-      background-color: #282828FF; /* Цвет кнопки при наведении */
-      border-color: #282828FF; /* Цвет рамки кнопки при наведении */
+      background-color: #16a085; /* Чуть темнее зеленый цвет кнопки при наведении */
+      border-color: #16a085; /* Чуть темнее зеленая рамка кнопки при наведении */
     }
 
     .authorization__info a {
-      color: #ccc; /* Цвет ссылки */
+      color: #666; /* Серый цвет ссылки */
     }
 
     .authorization__info a:hover {
-      color: #fff; /* Цвет ссылки при наведении */
+      color: #000; /* Черный цвет ссылки при наведении */
     }
-
   </style>
 </head>
 <body>
 <div class="image" style="width: 100%; height: 100%" th:src="@{/img/o3F.gif}"></div>
 <div class="container">
-  <h2 class="text-center mb-4">Registration</h2>
+  <h2 class="text-center mb-4">Регистрация</h2>
   <form th:action="@{/registration}" method="post" class="needs-validation" novalidate>
     <div class="form-group">
       <input type="text" class="form-control" id="login" name="username" placeholder="Login" required>

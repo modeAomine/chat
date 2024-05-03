@@ -217,7 +217,7 @@ body {
     margin-right: 22%;
 }
 
-/* Стили для формы новости (пример) */
+/* Стили для формы новости */
 .news-block form {
     background-color: #333333;
     padding: 20px;
@@ -233,7 +233,7 @@ textarea.form-control {
 }
 .chat-container {
     display: flex;
-    height: 100vh;
+    height: 90vh;
 }
 
 .users-list {
@@ -261,16 +261,12 @@ textarea.form-control {
     padding: 10px;
     border-radius: 8px;
 }
-
-.received {
-    background-color: #f1f0f0;
-    align-self: flex-start;
+.message.sent {
+    padding-left: 70%;
 }
 
-.sent {
-    background-color: #007bff;
-    color: white;
-    align-self: flex-end;
+.received {
+    align-self: flex-start;
 }
 
 .mini-profile {

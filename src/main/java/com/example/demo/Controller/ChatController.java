@@ -4,6 +4,7 @@ import com.example.demo.Component.CurrentUserUtil;
 import com.example.demo.Config.SendMessageRequest;
 import com.example.demo.Impl.ChatMessageService;
 import com.example.demo.Impl.ChatRoomService;
+import com.example.demo.Impl.FriendshipImpl;
 import com.example.demo.Impl.UserService;
 import com.example.demo.Model.ChatMessage;
 import com.example.demo.Model.ChatRoom;
@@ -32,6 +33,7 @@ public class ChatController {
     private final SimpMessagingTemplate messagingTemplate;
     private final UserService userService;
     private final ChatRoomService chatRoomService;
+    private final FriendshipImpl friendship;
 
     @GetMapping("/chat/users")
     public ResponseEntity<Map<String, Long>> getAllUsernames() {

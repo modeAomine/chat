@@ -35,7 +35,6 @@ public class ArticlesImpl {
                 String filename = fileStorage.storeFile(file);
                 articles.setArticlesFileName(filename);
             } catch (FileStorageException ex) {
-                // Обработка ошибки сохранения файла
                 ex.printStackTrace();
                 return null;
             }

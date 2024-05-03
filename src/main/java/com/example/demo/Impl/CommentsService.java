@@ -33,8 +33,6 @@ public class CommentsService {
             content.setUserId(user);
             content.setNewsId(news);
             commentsRepo.save(content);
-
-            // Обновляем список комментариев в новости
             news.getCommentsNews().add(content);
             newsRepo.save(news);
         } else {
@@ -43,11 +41,9 @@ public class CommentsService {
     }
 
     public boolean canDeleteComment(Long commentId, Long userId) {
-        // Получаем комментарий по id
         Optional<Comments> optionalComment = commentsRepo.findById(commentId);
         if (optionalComment.isPresent()) {
             Comments comment = optionalComment.get();
-            // Проверяем, является ли пользователь создателем комментария или поста
             return comment.getUserId().getId().equals(userId) || comment.getNewsId().getUserId().getId().equals(userId);
         }
         return false;

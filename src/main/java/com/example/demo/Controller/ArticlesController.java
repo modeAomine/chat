@@ -29,7 +29,7 @@ public class ArticlesController {
     public String articles(Model model) {
         User user = userService.authUser();
         model.addAttribute("user", user);
-        List<Articles> articles = articlesImpl.all(); // Получаем список всех новостей
+        List<Articles> articles = articlesImpl.all();
         model.addAttribute("articles", articles);
         List<Category> categories = categoryService.all();
         model.addAttribute("categories", categories);
@@ -73,7 +73,7 @@ public class ArticlesController {
         String username = principal.getName();
         User user = userService.findByUsername(username);
         Category category = categoryService.getCategoryById(categoryId);
-        articlesImpl.save(article, user, category, file); // Добавляем категорию
+        articlesImpl.save(article, user, category, file);
         return "redirect:/articles";
     }
 }

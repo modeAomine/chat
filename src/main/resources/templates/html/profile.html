@@ -202,13 +202,13 @@
 </script>
 <script>
   $(document).ready(function() {
-    $('.news-icons .cursor-pointer').click(function() {
-      var commentField = $(this).closest('.news-block').find('.collapse');
+    $('.cursor-pointer').click(function() {
+      let commentField = $(this).closest('.news-icons').next('.collapse');
       commentField.collapse('toggle');
     });
   });
-</script>
 
+</script>
 <script>
   document.querySelectorAll('.delete-news-text').forEach(function(element) {
     element.addEventListener('click', function(event) {
