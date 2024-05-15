@@ -9,4 +9,8 @@ import java.util.List;
 public interface CommentsRepo extends JpaRepository<Comments, Long> {
 
     Comments deleteByNewsId (News newsId);
+
+    List<Comments> findByNewsIdId(Long newsId);
+
+    List<Comments> findByNewsId_Id(Long newsId);
 }

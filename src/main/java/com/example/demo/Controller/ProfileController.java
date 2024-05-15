@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Exception.CommentSavingException;
 import com.example.demo.Exception.InvalidCommentException;
 import com.example.demo.Impl.CommentsService;
+import com.example.demo.Impl.NewsService;
 import com.example.demo.Impl.UserService;
 import com.example.demo.Model.Comments;
 import com.example.demo.Model.News;
@@ -17,6 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping
@@ -24,17 +28,30 @@ public class ProfileController {
 
     private final UserService userService;
     private final CommentsService commentsService;
+    private final NewsService newsService;
 
 
     @GetMapping("/profile")
     public String profilePage(Model model) {
         User user = userService.authUser();
         boolean isUserOnline = userService.isUserOnline();
+        // Получаем список новостей пользователя
+        List<News> userNews = newsService.getUserNews(user.getId()); // Замените на ваш метод
+
+        // Для каждой новости получаем список комментариев
+        for (News news : userNews) {
+            List<Comments> comments = commentsService.getCommentsForNews(news.getId()); // Замените на ваш метод
+            news.setCommentsNews(comments);
+
+        }
+
         model.addAttribute("user", user);
-        model.addAttribute("comment", new Comments());
+        model.addAttribute("userNews", userNews);
         model.addAttribute("isUserOnline", isUserOnline);
+
         return "html/profile";
     }
+
 
     @GetMapping("/profile/{username}")
     public String viewUserProfile(@PathVariable String username, Model model) {

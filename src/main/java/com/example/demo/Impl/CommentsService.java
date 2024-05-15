@@ -65,5 +65,13 @@ public class CommentsService {
         }
     }
 
+    public List<Comments> getCommentsForNews(Long newsId) {
+        return commentsRepo.findByNewsIdId(newsId);
+    }
+
+    public List<Comments> getCommentForNewsId(Long newsId) {
+        return commentsRepo.findByNewsId_Id(newsId);
+    }
+
     public List<Comments> getAll() { return commentsRepo.findAll(); }
 }

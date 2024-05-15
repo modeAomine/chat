@@ -21,4 +21,14 @@ public class Comments {
     private User userId;
 
     private String content;
+
+    @Override
+    public String toString() {
+        return "Comments{" +
+                "id=" + id +
+                ", newsId=" + (newsId != null ? newsId.getId() : null) + // Используйте идентификатор новости
+                ", userId=" + (userId != null ? userId.getId() : null) + // Используйте идентификатор пользователя
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

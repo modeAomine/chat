@@ -5,36 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="git init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/FriendsAndSubscribeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/FriendshipImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/SubscriptionImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Friendship.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Subscription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/FriendshipRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/SubscriptionRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/Impl/FriendshipImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/NewsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Comments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/News.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CommentsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CommentsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/NewsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/NewsRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/ChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/view-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/4fe448ee-de7d-43f4-81db-5b886257820a_1709102924539.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/7e770c62-384c-44c8-80d4-557288df11bc_KSMY.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Component/CurrentUserUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Component/CurrentUserUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/FriendsAndSubscribeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/FriendsAndSubscribeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/ArticlesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/ArticlesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/CommentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/CommentsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/SubscriptionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/SubscriptionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +92,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d2a57dc1d883fd21fb9951699df71cc7&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -153,10 +140,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.StarterWebApp">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -381,7 +366,11 @@
       <workItem from="1714248149576" duration="412000" />
       <workItem from="1714305778845" duration="1250000" />
       <workItem from="1714584720783" duration="1229000" />
-      <workItem from="1714723488933" duration="2148000" />
+      <workItem from="1714723488933" duration="3415000" />
+      <workItem from="1715786030937" duration="16000" />
+      <workItem from="1715786093356" duration="23000" />
+      <workItem from="1715786130685" duration="3817000" />
+      <workItem from="1715789957058" duration="4016000" />
     </task>
     <servers />
   </component>
@@ -410,16 +399,6 @@
           <properties class="com.twilio.exception.AuthenticationException" package="com.twilio.exception" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/Impl/FriendshipImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/example/demo/Impl/FriendshipImplTest.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

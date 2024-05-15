@@ -20,7 +20,7 @@ public class News {
     @Column(length = 1000)
     private String content;
 
-    @OneToMany(mappedBy = "newsId", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "newsId", cascade = CascadeType.PERSIST)
     private List<Comments> commentsNews;
 
     @Override
@@ -29,7 +29,7 @@ public class News {
                 "id=" + id +
                 ", userId=" + userId +
                 ", content='" + content + '\'' +
-                ", commentsNews=" + commentsNews +
+                ", commentsNewsSize=" + (commentsNews != null ? commentsNews.size() : 0) + // Используйте размер коллекции вместо вывода ее содержимого
                 '}';
     }
 }

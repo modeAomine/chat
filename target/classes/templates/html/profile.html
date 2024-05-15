@@ -5,189 +5,197 @@
 <body>
 <header th:replace="~{fragments/header :: header}"></header>
 <div class="container-profile mt-5">
-  <div class="profile-container row justify-content-center">
-    <div class="col-md-3 profile-avatar-container" style="margin-right: 15px; position: relative;">
-      <div class="profile-avatar-block" style="width: 230px; background-color: #333333D8;">
-        <div class="avatar-container"
-             style="width: 200px;
+    <div class="profile-container row justify-content-center">
+        <div class="col-md-3 profile-avatar-container" style="margin-right: 15px; position: relative;">
+            <div class="profile-avatar-block" style="width: 230px; background-color: #333333D8;">
+                <div class="avatar-container"
+                     style="width: 200px;
              height: 200px;
              border-radius: 50%;
              overflow: hidden;">
-          <img class="profile-avatar" id="avatarImage"
-               rel="icon" th:src="@{'/uploads/' + ${user.filename}}"
-                style="width: 100%;
+                    <img class="profile-avatar" id="avatarImage"
+                         rel="icon" th:src="@{'/uploads/' + ${user.filename}}"
+                         style="width: 100%;
                 height: 100%;
                 object-fit: cover;"
-               type="image/x-icon">
+                         type="image/x-icon">
+                </div>
+                <!-- Кнопка открытия модального окна (скрытая) -->
+                <button type="button" class="avatar-modal-trigger" data-toggle="modal" data-target="#avatarModal"
+                        style="position: absolute; top: 5%; left: 5%; width: 50%; height: 55%; opacity: 0;"></button>
+            </div>
         </div>
-        <!-- Кнопка открытия модального окна (скрытая) -->
-        <button type="button" class="avatar-modal-trigger" data-toggle="modal" data-target="#avatarModal" style="position: absolute; top: 5%; left: 5%; width: 50%; height: 55%; opacity: 0;"></button>
-      </div>
-    </div>
-    <div class="profile-info-block text-white">
-      <div class="profile-details text-center mt-3">
-        <!-- Разделяющая линия -->
-        <div class="user-info">
-          <span class="user-login" th:text="${user.username}">john.doe</span>
-          <span class="last-active-time" th:text="${#dates.format(user.lastActive, 'dd-MM-yyyy HH:mm:ss')}">N/A</span>
-          <span th:if="${isUserOnline}">Пользователь в сети</span>
-          <span th:unless="${isUserOnline}">Пользователь не в сети</span>
-        </div>
-        <hr class="separator-line mb-4">
-        <nav class="nav flex-column mt-3">
-          <p class="card-info">Дата регистрации: <span th:text="${#dates.format(user.registrationDate, 'dd-MM-yyyy')}">00-00-0000</span>
-          </p>
-          <p class="card-text" th:if="${user.name != null && !user.name.isBlank() && !user.name.isEmpty()}">Имя:
-            <span th:each="name : ${user.name}">
+        <div class="profile-info-block text-white">
+            <div class="profile-details text-center mt-3">
+                <!-- Разделяющая линия -->
+                <div class="user-info">
+                    <span class="user-login" th:text="${user.username}">john.doe</span>
+                    <span class="last-active-time" th:text="${#dates.format(user.lastActive, 'dd-MM-yyyy HH:mm:ss')}">N/A</span>
+                    <span th:if="${isUserOnline}">Пользователь в сети</span>
+                    <span th:unless="${isUserOnline}">Пользователь не в сети</span>
+                </div>
+                <hr class="separator-line mb-4">
+                <nav class="nav flex-column mt-3">
+                    <p class="card-info">Дата регистрации: <span
+                            th:text="${#dates.format(user.registrationDate, 'dd-MM-yyyy')}">00-00-0000</span>
+                    </p>
+                    <p class="card-text" th:if="${user.name != null && !user.name.isBlank() && !user.name.isEmpty()}">
+                        Имя:
+                        <span th:each="name : ${user.name}">
               <span th:text="${user.name}"></span>
             </span>
-          </p>
-          <p class="block-info" th:if="${user.email != null && !user.email.isBlank() && !user.email.isEmpty()}">Email:
-            <span th:each="email : ${user.email}">
+                    </p>
+                    <p class="block-info"
+                       th:if="${user.email != null && !user.email.isBlank() && !user.email.isEmpty()}">Email:
+                        <span th:each="email : ${user.email}">
               <span th:text="${user.email}"></span>
             </span>
-          </p>
-          <p class="block-info" th:if="${user.discord != null && !user.discord.isBlank() && !user.discord.isEmpty()}">Discord:
-            <span th:each="discord : ${user.discord}">
+                    </p>
+                    <p class="block-info"
+                       th:if="${user.discord != null && !user.discord.isBlank() && !user.discord.isEmpty()}">Discord:
+                        <span th:each="discord : ${user.discord}">
               <span th:text="${user.discord}"></span>
             </span>
-          </p>
-          <p class="block-info" th:if="${user.VK != null && !user.VK.isBlank() && !user.VK.isEmpty()}">VK:
-            <span th:each="VK : ${user.VK}">
+                    </p>
+                    <p class="block-info" th:if="${user.VK != null && !user.VK.isBlank() && !user.VK.isEmpty()}">VK:
+                        <span th:each="VK : ${user.VK}">
               <link th:text="${user.VK}">
             </span>
-          </p>
-        </nav>
-        <hr class="separator-line my-4"> <!-- Разделяющая линия -->
-      </div>
-    </div>
-
-
-    <div class="news-block">
-      <h4 class="text-white">Публикация новости</h4>
-      <form th:action="@{/profile/publish/news}" method="post">
-        <div class="form-group">
-          <label for="newsContent" style="color: white">Текст новости:</label>
-          <textarea class="form-control" id="newsContent" name="newsContent" rows="3" required></textarea>
+                    </p>
+                </nav>
+                <hr class="separator-line my-4"> <!-- Разделяющая линия -->
+            </div>
         </div>
-        <button type="submit" class="btn btn-custom">Опубликовать новость</button>
-      </form>
 
 
-      <li th:each="news : ${user.publishNewsProfile}" style="position: relative;">
-        <a href="#" class="delete-news-text" th:if="${#authentication.name == news.userId.username}">
-          Удалить новость
-        </a>
+        <div class="news-block">
+            <h4 class="text-white">Публикация новости</h4>
+            <form th:action="@{/profile/publish/news}" method="post">
+                <div class="form-group">
+                    <label for="newsContent" style="color: white">Текст новости:</label>
+                    <textarea class="form-control" id="newsContent" name="newsContent" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-custom">Опубликовать новость</button>
+            </form>
 
-        <form th:action="@{'/profile/' + ${news.id} + '/delete'}" method="post" class="delete-news-form">
+            <ul>
+                <li th:each="news : ${user.publishNewsProfile}" style="position: relative;">
+                    <a href="#" class="delete-news-text" th:if="${#authentication.name == news.userId.username}">
+                        Удалить новость
+                    </a>
 
-        </form>
+                    <form th:action="@{'/profile/' + ${news.id} + '/delete'}" method="post" class="delete-news-form">
+                    </form>
 
-          <div class="news-author"
-               style="display: flex;
-            align-items: center;
-            margin-bottom: 10px;">
-            <img th:src="@{'/uploads/' + ${news.userId.filename}}" class="profile-avatar" alt="avatar"
-                 style="width: 50px;
-                height: 50px;
-                object-fit: cover;
-                border-radius: 50%;">
-            <span th:text="${news.userId.username}" class="author-username" style="margin-left: 10px;"></span>
-          </div>
-          <hr class="news-divider" style="margin-bottom: 10px;"/>
-          <p th:text="${news.content}" class="news-content"></p>
+                    <div class="news-author" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <img th:src="@{'/uploads/' + ${news.userId.filename}}" class="profile-avatar" alt="avatar"
+                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                        <span th:text="${news.userId.username}" class="author-username" style="margin-left: 10px;"></span>
+                    </div>
+                    <hr class="news-divider" style="margin-bottom: 10px;"/>
+                    <p th:text="${news.content}" class="news-content"></p>
 
-          <ul>
-            <li th:each="comment : ${news.commentsNews}" class="comment-container" style="position: relative;">
-              <span>
+                    <div class="news-icons" style="display: flex; align-items: center; margin-top: 10px;">
+                <span style="margin-right: 10px;">
+                    <img class="image" id="likeImage" rel="icon" th:src="@{/img/like.svg}"
+                         style="width: 35px; height: 35px; margin-top: 10px;" type="image/x-icon">
+                </span>
+                        <span class="cursor-pointer" data-toggle="collapse" th:data-target="'commentField' + ${news.id}">
+                    <img class="image" id="commentImage" rel="icon" th:src="@{/img/comments.svg}"
+                         style="width: 35px; height: 35px;" type="image/x-icon">
+                </span>
+                    </div>
+
+                    <div th:id="'commentField' + ${news.id}" class="collapse" style="margin-top: 10px;">
+                        <form class="comment-form" action="/comments/{newsId}" method="post"
+                              th:action="@{'/comments/' + ${news.id}}" th:object="${comment}">
+                            <input type="hidden" name="newsId" th:value="${news.getId()}">
+                            <div class="form-group">
+                                <label for="commentContent">Оставьте комментарий:</label>
+                                <input type="text" id="commentContent" name="content" class="form-control"
+                                       placeholder="Оставьте комментарий..." required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </form>
+                    </div>
+
+                </li>
+            </ul>
+
+            <!-- Комментарии -->
+            <ul>
+                <li th:each="comment : ${userNews}" class="comment-container" style="position: relative;">
+            <span>
                 <img th:src="@{'/uploads/' + ${comment.userId.filename}}" style="
-                  height: 40px;
-                  width: 40px;
-                  object-fit: cover;
-                  border-radius: 50%;">
-              </span>
-              <span>
+                    height: 40px;
+                    width: 40px;
+                    object-fit: cover;
+                    border-radius: 50%;">
+            </span>
+                    <span>
                 <a th:if="${#authentication.name == comment.userId.username}"
-                  th:href="@{'/profile'}"
-                  th:text="${comment.userId.username}">
+                   th:href="@{'/profile'}"
+                   th:text="${comment.userId.username}">
                 </a>
                 <a th:if="${#authentication.name != comment.userId.username}"
                    th:href="@{'/profile/' + ${comment.userId.username}}"
-                    th:text="${comment.userId.username}">
+                   th:text="${comment.userId.username}">
                 </a>
-              </span>:
-              <span th:text="${comment.content}"></span>
-              <form th:if="${#authentication.name == comment.userId.username}" th:action="@{'/news/' + ${news.id} + '/comments/' + ${comment.id}}" method="post" style="display: inline; background-color: #3b3b3b; padding: 0">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" class="delete-comment-btn" title="Удалить комментарий">&times;</button>
-              </form>
-              <a th:if="${#authentication.name == comment.userId.username}"
-                 th:href="@{'/comments/edit/' + ${comment.id}}"
-                 class="edit-link">Редактировать</a>
-              <hr class="separator-line my-4">
-            </li>
-          </ul>
-
-        <div class="news-icons" style="display: flex; align-items: center; margin-top: 10px;">
-        <span style="margin-right: 10px;">
-          <img class="image" id="likeImage" rel="icon" th:src="@{/img/like.svg}"
-               style="width: 35px;
-                      height: 35px;
-                      margin-top: 10px;"
-               type="image/x-icon">
-        </span>
-          <span class="cursor-pointer" data-toggle="collapse" data-target="#commentField${news.id}">
-            <img class="image" id="commentImage" rel="icon" th:src="@{/img/comments.svg}" style="width: 35px; height: 35px;" type="image/x-icon">
-          </span>
+            </span>:
+                    <span th:text="${comment.content}"></span>
+                    <form th:if="${#authentication.name == comment.userId.username}"
+                          th:action="@{'/news/' + ${news} + '/comments/' + ${comment.id}}"
+                          method="post" style="display: inline; background-color: #3b3b3b; padding: 0">
+                        <input type="hidden" name="newsId" th:value="${news}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="delete-comment-btn" title="Удалить комментарий">&times;</button>
+                    </form>
+                    <a th:if="${#authentication.name == comment.userId.username}"
+                       th:href="@{'/comments/edit/' + ${comment.id}}"
+                       class="edit-link">Редактировать</a>
+                    <hr class="separator-line my-4">
+                </li>
+            </ul>
 
         </div>
 
-        <div data-comment-id="commentField" class="collapse" style="margin-top: 10px;">
-          <form class="comment-form" action="/comments/{newsId}" method="post" th:action="@{'/comments/' + ${news.id}}" th:object="${comment}">
-            <input type="hidden" name="newsId" th:value="${news.getId()}">
-            <div class="form-group">
-              <label for="commentContent">Оставьте комментарий:</label>
-              <input type="text" id="commentContent" name="content" class="form-control" placeholder="Оставьте комментарий..." required>
-            </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
-          </form>
-        </div>
 
-      </li>
     </div>
-
-  </div>
 
 </div>
 <div class="dark-overlay">
-  <img class="profile-avatar" id="profileBackgroundFilename"
-       rel="icon" th:src="@{'/uploads/' + ${user.profileBackgroundFilename}}">
+    <img class="profile-avatar" id="profileBackgroundFilename"
+         rel="icon" th:src="@{'/uploads/' + ${user.profileBackgroundFilename}}">
 </div>
-<div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Изменить аватар</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form sec:authorize="${#authorization.expression('isAuthenticated()')}" th:action="@{/settings/updateAvatar}" method="post" enctype="multipart/form-data">
-          <input th:field="${user.id}" type="hidden">
-          <!-- Предпросмотр текущего аватара -->
-          <div class="avatar-container" style="height: 150px; width: 150px">
-            <img class="avatar-preview" id="avatarPreview" th:src="@{'/uploads/' + ${user.filename}}" alt="Avatar Preview">
-          </div>
-          <!-- Кнопка выбора файла -->
-          <label class="btn btn-primary" for="avatar-upload">Загрузить новый аватар</label>
-          <input id="avatar-upload" type="file" th:field="${user.filename}" style="display: none;">
-          <!-- Кнопка Сохранить -->
-          <button type="submit" class="btn btn-custom" style="width: 100%; margin-top: 5px;">Сохранить</button>
-        </form>
-      </div>
+<div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Изменить аватар</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form sec:authorize="${#authorization.expression('isAuthenticated()')}"
+                      th:action="@{/settings/updateAvatar}" method="post" enctype="multipart/form-data">
+                    <input th:field="${user.id}" type="hidden">
+                    <!-- Предпросмотр текущего аватара -->
+                    <div class="avatar-container" style="height: 150px; width: 150px">
+                        <img class="avatar-preview" id="avatarPreview" th:src="@{'/uploads/' + ${user.filename}}"
+                             alt="Avatar Preview">
+                    </div>
+                    <!-- Кнопка выбора файла -->
+                    <label class="btn btn-primary" for="avatar-upload">Загрузить новый аватар</label>
+                    <input id="avatar-upload" type="file" th:field="${user.filename}" style="display: none;">
+                    <!-- Кнопка Сохранить -->
+                    <button type="submit" class="btn btn-custom" style="width: 100%; margin-top: 5px;">Сохранить
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div style="height: 100px"></div>
 <footer th:replace="~{fragments/footer :: footer}"></footer>
@@ -196,29 +204,29 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-  document.querySelector('.avatar-modal-trigger').addEventListener('click', function() {
-    $('#avatarModal').modal('show');
-  });
+    document.querySelector('.avatar-modal-trigger').addEventListener('click', function () {
+        $('#avatarModal').modal('show');
+    });
 </script>
 <script>
-  $(document).ready(function() {
-    $('.cursor-pointer').click(function() {
-      let commentField = $(this).closest('.news-icons').next('.collapse');
-      commentField.collapse('toggle');
+    $(document).ready(function () {
+        $('.cursor-pointer').click(function () {
+            let targetId = $(this).attr('data-target');
+            $('#' + targetId).toggle();
+        });
     });
-  });
 
 </script>
 <script>
-  document.querySelectorAll('.delete-news-text').forEach(function(element) {
-    element.addEventListener('click', function(event) {
-      event.preventDefault();
-      let form = this.nextElementSibling;
-      if (form) {
-        form.submit();
-      }
+    document.querySelectorAll('.delete-news-text').forEach(function (element) {
+        element.addEventListener('click', function (event) {
+            event.preventDefault();
+            let form = this.nextElementSibling;
+            if (form) {
+                form.submit();
+            }
+        });
     });
-  });
 </script>
 </body>
 </html>
