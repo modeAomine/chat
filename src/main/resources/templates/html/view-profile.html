@@ -4,7 +4,6 @@
 <head th:replace="~{fragments/head :: head}">
 </head>
 <style>
-    /* Стили для затемнения и фона профиля */
     .dark-overlay {
         position: fixed;
         top: 0;
@@ -57,7 +56,6 @@
         </div>
         <div class="profile-info-block text-white">
             <div class="profile-details text-center mt-3">
-                <!-- Разделяющая линия -->
                 <div class="user-info">
                     <span class="user-login" th:text="${viewuser.username}">john.doe</span>
                     <span class="last-active-time" th:text="${#dates.format(viewuser.lastActive, 'dd-MM-yyyy HH:mm:ss')}">N/A</span>
@@ -89,7 +87,7 @@
             </span>
                     </p>
                 </nav>
-                <hr class="separator-line my-4"> <!-- Разделяющая линия -->
+                <hr class="separator-line my-4">
             </div>
         </div>
         <div class="news-block">

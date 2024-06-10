@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Component.CurrentUserUtil;
 import com.example.demo.Config.SendMessageRequest;
+import com.example.demo.DTO.UserDTO;
 import com.example.demo.Impl.ChatMessageService;
 import com.example.demo.Impl.ChatRoomService;
 import com.example.demo.Impl.FriendshipImpl;
@@ -36,10 +37,11 @@ public class ChatController {
     private final FriendshipImpl friendship;
 
     @GetMapping("/chat/users")
-    public ResponseEntity<Map<String, Long>> getAllUsernames() {
-        Map<String, Long> usernames = userService.findAllByUsernameAndId();
+    public ResponseEntity<Map<String, UserDTO>> getAllUsernames() {
+        Map<String, UserDTO> usernames = userService.findAllByUsernameAndIdAndFilename();
         return ResponseEntity.ok(usernames);
     }
+
 
     @MessageMapping("/send")
     public ResponseEntity<?> sendMessage(@RequestBody SendMessageRequest request) {

@@ -56,7 +56,6 @@
               <p>Автор: <span th:text="${article.user.username}"></span></p>
             </div>
             <div class="col-6 text-right">
-              <!-- Мини-профиль -->
               <div class="mini-profile-block">
                 <img th:src="@{'/uploads/' + ${article.user.filename}}" type="image/x-icon" class="mini-profile-avatar rounded-circle"
                      style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
@@ -71,7 +70,6 @@
 </div>
 
 
-<!-- Модальное окно для создания новости -->
 <div class="modal fade" id="createArticleModal" tabindex="-1" role="dialog" aria-labelledby="createArticleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -102,7 +100,6 @@
               <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
           </div>
-          <!-- Добавление тегов -->
           <div class="form-group">
             <label for="tags">Теги новости (разделенные запятой)</label>
             <input type="text" class="form-control" id="tags" name="tags">

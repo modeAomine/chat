@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Обработка нажатия на кнопку "Поиск"
     searchButton.addEventListener('click', function(event) {
         event.preventDefault();
         let query = searchInput.value;
@@ -58,10 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function() {
         let query = searchInput.value;
         if (query.length === 0) {
-            // Если поле поиска пустое, скрываем контейнер с результатами
             searchResultsContainer.style.display = 'none';
         } else {
-            // Если есть запрос, показываем контейнер с результатами
             searchResultsContainer.style.display = 'block';
         }
     });

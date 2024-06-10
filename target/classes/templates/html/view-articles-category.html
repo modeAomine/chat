@@ -11,7 +11,6 @@
 <header th:replace="~{fragments/header :: header}"></header>
 <div class="container mt-5">
   <div class="category-container">
-    <!-- Вывод списка категорий -->
     <h5>Основные темы</h5>
     <div th:each="category : ${categories}" class="category-link">
       <a th:href="@{/articles-in-category/{categoryId}(categoryId=${category.id})}">
@@ -21,7 +20,6 @@
 
     <h6>Тематическая категория</h6>
 
-    <!-- Мини-профиль пользователя -->
     <div class="mini-profile-block mt-3">
       <img rel="icon" th:src="@{'/uploads/' + ${user.filename}}" type="image/x-icon"
            class="mini-profile-avatar rounded-circle"
@@ -30,21 +28,18 @@
     </div>
   </div>
 
-  <!-- Блок для вывода статей -->
   <div class="article-container">
     <ul class="list-unstyled">
       <li th:each="article : ${articles}" class="media">
         <div class="media-body">
           <div class="row">
             <div class="col-6">
-              <!-- Измененная ссылка для заголовка новости -->
               <a th:href="@{/articles/articles-in-category/{categoryId}/article/{articleId}(categoryId=${article.category.id}, articleId=${article.id})}">
                 <h5 class="mt-0 mb-1" th:text="${article.title}"></h5>
               </a>
               <p>Автор: <span th:text="${article.user.username}"></span></p>
             </div>
             <div class="col-6 text-right">
-              <!-- Мини-профиль -->
               <div class="mini-profile-block">
                 <img th:src="@{'/uploads/' + ${article.user.filename}}" type="image/x-icon"
                      class="mini-profile-avatar rounded-circle"

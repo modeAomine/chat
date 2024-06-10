@@ -6,17 +6,18 @@ function displayMessage(message) {
     const usernameDiv = $("<div>").addClass("username");
     const textDiv = $("<div>").addClass("text");
     const timeDiv = $("<div>").addClass("time-stamp");
+
     if (message.senderId === currentUserId) {
         messageElement.addClass("sent");
         usernameDiv.text("Вы: ");
-        textDiv.text(message.text);
-        timeDiv.text(formatTime(message.timestamp));
     } else if (message.recipientId === currentUserId) {
         messageElement.addClass("received");
         usernameDiv.text(recipientUsername + ":");
-        textDiv.text(message.text);
-        timeDiv.text(formatTime(message.timestamp));
     }
+
+    textDiv.text(message.text);
+    timeDiv.text(formatTime(message.timestamp));
+
     messageElement.append(usernameDiv, textDiv, timeDiv);
     messageContainer.append(messageElement);
 
@@ -25,9 +26,9 @@ function displayMessage(message) {
 
 function formatTime(timestamp) {
     const date = new Date(timestamp);
-    const hours = date.getHours().toString().padStart(2, "0"); // Получаем часы
-    const minutes = date.getMinutes().toString().padStart(2, "0"); // Получаем минуты
-    return `${hours}:${minutes}`; // Возвращаем форматированное время
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
 }
 
 function loadChatHistory(chatRoomId) {

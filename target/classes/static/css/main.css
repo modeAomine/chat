@@ -29,7 +29,7 @@ body {
 .navbar-nav {
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Размещаем элементы по краям */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -38,32 +38,33 @@ body {
 }
 
 .nav-search {
-    margin-right: 20px; /* Увеличиваем отступ между ссылками и поиском */
+    margin-right: 20px;
 }
 
 .nav-logo {
-    max-width: 30px; /* Максимальная ширина для логотипа */
-    margin-right: 20px; /* Отступ от правого края */
+    max-width: 30px;
+    margin-right: 20px;
 }
 
 /* main.css */
 
+
 .profile-details p {
-    text-align: left; /* Выравнивание текста по левой стороне */
+    text-align: left;
 }
 
 .profile-details .nav-link {
-    color: #303030; /* Цвет текста */
+    color: #303030;
 }
 
 .user-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px; /* Отступ между логином и временем активности */
+    margin-bottom: 10px;
 }
 
 .login {
-    margin-right: 10px; /* Отступ между логином и временем активности */
+    margin-right: 10px;
 }
 
 .links {
@@ -71,11 +72,11 @@ body {
 }
 
 .links a {
-    margin-right: 10px; /* Отступ между ссылками "Темы" и "Аккаунты" */
+    margin-right: 10px;
 }
 
 .separator {
-    margin: 0 5px; /* Отступ между разделителем | и текстом */
+    margin: 0 5px;
 }
 
 .profile-avatar-info-container {
@@ -84,31 +85,31 @@ body {
 }
 
 .profile-info-block {
-    background-color: #3b3b3b; /* Цвет фона блока */
-    padding: 20px; /* Внутренний отступ блока */
-    border-radius: 10px; /* Скругленные углы блока */
-    color: #ffffff; /* Цвет текста внутри блока */
-    width: 40%; /* Ширина блока */
-    margin: 20px 20px 20px 0; /* Отступы от верха, справа, низа и слева */
+    background-color: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    width: 40%;
+    margin: 20px 20px 20px 0;
 }
 
 .profile-avatar-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%; /* Ширина блока */
-    margin: 20px 0; /* Отступы от верха и низа */
-    background-color: #3b3b3b; /* Цвет фона блока */
-    padding: 15px; /* Внутренний отступ блока */
-    border-radius: 15px; /* Скругленные углы блока */
+    width: 40%;
+    margin: 20px 0;
+    background-color: #3b3b3b;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .profile-post-form {
-    background-color: #3b3b3b; /* Цвет фона блока */
-    padding: 20px; /* Внутренний отступ блока */
-    border-radius: 10px; /* Скругленные углы блока */
-    color: #ffffff; /* Цвет текста внутри блока */
-    margin-top: 20px; /* Отступ сверху */
+    background-color: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-top: 20px;
 }
 
 .profile-post-form textarea {
@@ -160,11 +161,11 @@ body {
 }
 
 /*    .profile-avatar-container {
-  margin-right: 50px; !* Уменьшаем отступ между блоками *!
+  margin-right: 50px;
 }*/
 
 .profile-info-block {
-    margin-left: -180px; /* Уменьшаем отступ между блоками */
+    margin-left: -180px;
 }
 
 .row {
@@ -172,7 +173,7 @@ body {
 }
 
 .footer-bottom {
-    flex-shrink: 0; /* Не сжимаем футер */
+    flex-shrink: 0;
     line-height: 60px;
     background-color: #3b3b3b;
     color: rgba(255, 255, 255, 0.75);
@@ -184,40 +185,39 @@ body {
     display: flex;
     margin-bottom: -5%;
     width: 100%;
-    height: 90px; !* Высота футера *!
-    line-height: 60px; !* Выравнивание текста по вертикали *!
+    height: 90px;
+    line-height: 60px;
     background-color: #3b3b3b;
     color: rgba(255, 255, 255, 0.75);
 }*/
 
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #ffffff /* цвет текста основных элементов навигации */
+    color: #ffffff
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #000000; /* цвет текста при наведении на элемент навигации */
+    color: #000000;
 }
 
 .navbar-dark .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    background-color: #333333D8; /* цвет фона выпадающего списка при наведении на элемент "Соц. сети" */
+    background-color: #333333D8;
 }
 
 .navbar-dark .navbar-nav .nav-item.dropdown .dropdown-item {
-    color: #ffffff; /* цвет текста внутри выпадающего списка */
+    color: #ffffff;
 }
 
 .navbar-dark .navbar-nav .nav-item.dropdown .dropdown-item:hover {
-    background-color: #333333D8; /* цвет фона элемента выпадающего списка при наведении на него */
+    background-color: #333333D8;
 }
 .news-block {
-    margin-top: 0rem; /* Расстояние между блоками */
-    width: 70%; /* Пример: ширина в 70% от родительского контейнера */
+    margin-top: 0rem;
+    width: 70%;
     margin-left: 38%;
     margin-right: 22%;
 }
 
-/* Стили для формы новости */
 .news-block form {
     background-color: #333333;
     padding: 20px;

@@ -1,5 +1,6 @@
 package com.example.demo.Impl;
 
+import com.example.demo.DTO.UserDTO;
 import com.example.demo.Model.*;
 import com.example.demo.Repo.ArticlesRepo;
 import com.example.demo.Repo.NewsRepo;
@@ -43,6 +44,15 @@ public class UserService {
         } else {
             return false;
         }
+    }
+
+    public Map<String, UserDTO> findAllByUsernameAndIdAndFilename() {
+        List<User> users = userRepo.findAll();
+        return users.stream()
+                .collect(Collectors.toMap(
+                        User::getUsername,
+                        user -> new UserDTO(user.getId(), user.getFilename())
+                ));
     }
 
     private boolean isWithinThreshold(User user) {

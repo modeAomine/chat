@@ -1,35 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="~{fragments/head :: head}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Отключаем вертикальную прокрутку на странице */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #4a4a4a;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        .container-fluid {
-            height: 100%;
-            overflow: hidden; /* Отключаем вертикальную прокрутку для родительского контейнера */
+        /* Стили для списка пользователей */
+        #users-list {
+            width: 25%;
+            max-width: 300px;
+            background-color: #ffffff;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .user-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .user-info {
+            flex-grow: 1;
+        }
+
+        .user-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .user-status {
+            font-size: 12px;
+            color: #888;
+        }
+        #chat {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-header {
+            padding: 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .messages-container {
-            flex: 1;
-            height: 0; /* Позволяет контейнеру растягиваться */
+            flex-grow: 1;
+            padding: 20px;
             overflow-y: auto;
-            margin-bottom: 20px;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            max-height: calc(80vh - 100px);
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
         }
 
         .sent {
-            padding-left: 70%;
-            color: black;
+            background-color: #DCF8C6;
+            align-self: flex-end;
         }
 
         .received {
-            background-color: #EAEAEA;
+            background-color: #E5E7EB;
             align-self: flex-start;
-            text-align: left;
         }
 
         .username {
@@ -38,39 +118,60 @@
         }
 
         .text {
-            word-wrap: break-word;
+            margin-top: 5px;
+        }
+
+        .time-stamp {
+            font-size: 12px;
+            color: #888;
+            text-align: right;
         }
 
         .input-container {
             display: flex;
-            align-items: center;
+            padding: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
         }
 
         .message-input {
-            flex: 1;
-            margin-right: 10px;
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
         }
 
         .send-button {
-            width: 100px;
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .send-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <header th:replace="~{fragments/header :: header}"></header>
-<body>
-<div class="container-fluid">
-    <div class="row chat-container">
-        <div class="col-md-3">
-            <div id="users-list" class="list-group">
-                <!-- Список пользователей -->
-            </div>
+<body class="bg-gray-100">
+<div class="container mx-auto p-4">
+    <div class="flex h-screen">
+        <div class="w-1/4 bg-white border-r overflow-y-auto" id="users-list">
+
         </div>
-        <div class="col-md-9">
-            <div class="chat-container">
-                <div id="chat" class="chat" th:data-username="${user.username}" th:data-recipient-id="${user.id}">
-                    <div class="card-header" style="display: none;">Чат с пользователем</div>
-                    <div class="card-body messages-container" id="messages-container">
-                        <!-- Здесь будут отображаться сообщения -->
+        <div class="w-3/4 flex flex-col">
+            <div class="flex flex-col flex-grow bg-white">
+                <div id="chat" class="chat">
+                    <div class="border-b p-4 font-bold card-header" style="display: none;">Чат с пользователем</div>
+                    <div class="card-body typing-status" style="display: none">Печатает...</div>
+                    <div class="flex flex-col flex-grow overflow-y-auto p-4 messages-container" id="messages-container">
+
                     </div>
                     <div class="card-footer" style="display: none;">
                         <div class="input-container">
@@ -93,6 +194,9 @@
 <script th:src="@{/js/chat.js}"></script>
 <script>
     let stompClient = null;
+    let currentSubscription = null;
+    let currentChatRoomId = null;
+    let currentRecipientId = null;
 
     $(function() {
         const socket = new SockJS('/ws-chat');
@@ -107,8 +211,12 @@
                 displayMessage(message);
             });
 
-            const chatRoomId = $("#chat").data("chat-room-id");
-            loadChatHistory(chatRoomId);
+            stompClient.subscribe('/topic/status', function (messageOutput) {
+                const statusMessage = JSON.parse(messageOutput.body);
+                updateTypingStatus(statusMessage);
+            })
+
+            loadUsersFromServer();
         });
     });
 
@@ -135,29 +243,334 @@
 
         stompClient.send("/app/send", {}, JSON.stringify(data));
     }
+
+    function sendTypingStatus(isTyping) {
+        if (!stompClient || !currentChatRoomId) {
+            return;
+        }
+
+        const statusMessage = {
+            senderId: $("#sender-id").val(),
+            chatRoomId: currentChatRoomId,
+            typing: isTyping
+        };
+
+        stompClient.send("/app/status", {}, JSON.stringify(statusMessage));
+    }
+
+    let typingTimeout;
+
+    $("#user-message").on("input", function() {
+        clearTimeout(typingTimeout);
+        sendTypingStatus(true);
+
+        typingTimeout = setTimeout(function() {
+            sendTypingStatus(false);
+        }, 2000);
+    });
+
+    function loadUsersFromServer() {
+        fetch('/chat/users')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(users => {
+                console.log('Users:', users);
+                let userList = document.getElementById('users-list');
+                userList.innerHTML = '';
+
+                Object.keys(users).forEach(username => {
+                    let userDTO = users[username];
+                    let userAvatarUrl = userDTO.filename ? `/uploads/${userDTO.filename}` : null;
+
+                    let userItem = document.createElement('div');
+                    userItem.classList.add('user-item');
+
+                    let userAvatar;
+                    if (userAvatarUrl) {
+                        userAvatar = document.createElement('img');
+                        userAvatar.classList.add('user-avatar');
+                        userAvatar.setAttribute('src', userAvatarUrl);
+                    } else {
+                        userAvatar = document.createElement('div');
+                        userAvatar.classList.add('user-avatar');
+                        userAvatar.style.backgroundColor = getRandomColor();
+                        userAvatar.textContent = username.charAt(0).toUpperCase();
+                    }
+
+                    let userInfo = document.createElement('div');
+                    userInfo.classList.add('user-info');
+
+                    let userName = document.createElement('div');
+                    userName.classList.add('user-name');
+                    userName.textContent = username;
+
+                    let userStatus = document.createElement('div');
+                    userStatus.classList.add('user-status');
+                    userStatus.textContent = 'Online';
+
+                    let lastMessage = document.createElement('div');
+                    lastMessage.classList.add('last-message');
+
+                    userInfo.appendChild(userName);
+                    userInfo.appendChild(userStatus);
+                    userInfo.appendChild(lastMessage);
+
+                    userItem.appendChild(userAvatar);
+                    userItem.appendChild(userInfo);
+
+                    userItem.setAttribute('data-userid', userDTO.id);
+                    userItem.addEventListener('click', function () {
+                        openChat(userName.textContent, userDTO.id);
+                    });
+
+                    userList.appendChild(userItem);
+                });
+
+                loadLastMessages();
+            })
+            .catch(error => console.error('Ошибка получения списка пользователей:', error));
+    }
+
+    function loadLastMessages() {
+        fetch('/list/last-messages')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(lastMessages => {
+                console.log('Last messages:', lastMessages);
+
+                lastMessages.forEach(chatRoom => {
+                    const userId = chatRoom.chatRoomId;
+                    const lastMessageText = chatRoom.lastMessage.text;
+                    const userItem = document.querySelector(`.user-item[data-userid='${userId}']`);
+
+                    if (userItem) {
+                        const lastMessageElement = userItem.querySelector('.last-message');
+                        lastMessageElement.textContent = lastMessageText;
+                    }
+                });
+            })
+            .catch(error => console.error('Ошибка получения последних сообщений:', error));
+    }
+
+    function getRandomColor() {
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#33FFF5', '#FFA533'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function openChat(username, recipientId) {
+        const chatWindow = document.getElementById('chat');
+        const newRecipientId = recipientId;
+
+        $.ajax({
+            url: '/generate-chat-id',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ senderId: $("#sender-id").val(), recipientId: newRecipientId }),
+            success: function(response) {
+                const newChatRoomId = response.chatId;
+                if (newChatRoomId !== currentChatRoomId) {
+                    if (currentSubscription) {
+                        currentSubscription.unsubscribe();
+                    }
+                    currentSubscription = stompClient.subscribe('/topic/messages/' + newChatRoomId, function (messageOutput) {
+                        const message = JSON.parse(messageOutput.body);
+                        console.log('История сообщений чата:', message);
+                        displayMessage(message);
+                    });
+                    currentChatRoomId = newChatRoomId;
+                }
+                currentRecipientId = newRecipientId;
+                chatWindow.querySelector('.card-header').style.display = 'block';
+                chatWindow.querySelector('.card-header').textContent = 'Чат с ' + username;
+                chatWindow.setAttribute('data-username', username);
+                chatWindow.setAttribute('data-recipient-id', newRecipientId);
+                chatWindow.setAttribute('data-chat-room-id', newChatRoomId);
+                chatWindow.querySelector('.card-footer').style.display = 'block';
+
+                loadAllMessages(newChatRoomId);
+            },
+            error: function(error) {
+                console.error('Ошибка генерации идентификатора чата:', error);
+            }
+        });
+    }
+
+    function loadAllMessages(chatRoomId) {
+        fetch('/list/' + chatRoomId)
+            .then(response => response.json())
+            .then(messages => {
+                messages.forEach(message => {
+                    displayMessage(message);
+                });
+            })
+            .catch(error => console.error('Ошибка получения сообщений чата:', error));
+    }
+
+    function updateTypingStatus(statusMessage) {
+        const { senderId, chatRoomId, typing } = statusMessage;
+
+        if (chatRoomId === currentChatRoomId) {
+            const userItem = document.querySelector(`.user-item[data-userid='${senderId}']`);
+
+            if (userItem) {
+                const typingStatusElement = userItem.querySelector('.typing-status');
+
+                if (!typingStatusElement) {
+                    const newTypingStatusElement = document.createElement('div');
+                    newTypingStatusElement.querySelector('typing-status');
+                    newTypingStatusElement.textContent = 'Печатает...';
+                    userItem.querySelector('.user-info').appendChild(newTypingStatusElement);
+                } else {
+                    typingStatusElement.style.display = typing ? 'block' : 'none';
+                }
+            }
+        }
+    }
+
+    function displayMessage(message) {
+        const messagesContainer = document.getElementById('messages-container');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+
+        const senderId = document.getElementById('sender-id').value;
+        if (message.senderId == senderId) {
+            messageElement.classList.add('sent');
+        } else {
+            messageElement.classList.add('received');
+        }
+
+        messageElement.innerHTML = `
+            <div class="message-sender">${message.senderId}</div>
+            <div class="message-content">${message.text}</div>
+        `;
+
+        messagesContainer.appendChild(messageElement);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    document.getElementById('send-button').addEventListener('click', function() {
+        const messageInput = document.getElementById('user-message');
+        const senderId = document.getElementById('sender-id').value;
+        const recipientId = currentRecipientId;
+        const text = messageInput.value;
+        const chatRoomId = currentChatRoomId;
+        const timestamp = new Date().toISOString();
+
+        sendMessage(senderId, recipientId, text, chatRoomId, timestamp);
+        messageInput.value = '';
+    });
+
 </script>
-<script>
+<!--<script>
     document.addEventListener("DOMContentLoaded", function() {
         loadUsersFromServer();
 
         function loadUsersFromServer() {
             fetch('/chat/users')
-                .then(response => response.json())
-                .then(usernames => {
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(users => {
+                    console.log('Users:', users);
                     let userList = document.getElementById('users-list');
                     userList.innerHTML = '';
-                    Object.keys(usernames).forEach(username => {
-                        let userItem = document.createElement('button');
-                        userItem.textContent = username;
-                        userItem.setAttribute('data-userid', usernames[username]);
-                        userItem.classList.add('list-group-item', 'list-group-item-action');
+
+                    Object.keys(users).forEach(username => {
+                        let userDTO = users[username];
+                        let userAvatarUrl = userDTO.filename ? `/uploads/${userDTO.filename}` : null;
+
+                        let userItem = document.createElement('div');
+                        userItem.classList.add('user-item');
+
+                        let userAvatar;
+                        if (userAvatarUrl) {
+                            userAvatar = document.createElement('img');
+                            userAvatar.classList.add('user-avatar');
+                            userAvatar.setAttribute('src', userAvatarUrl);
+                        } else {
+                            userAvatar = document.createElement('div');
+                            userAvatar.classList.add('user-avatar');
+                            userAvatar.style.backgroundColor = getRandomColor();
+                            userAvatar.textContent = username.charAt(0).toUpperCase();
+                        }
+
+                        let userInfo = document.createElement('div');
+                        userInfo.classList.add('user-info');
+
+                        let userName = document.createElement('div');
+                        userName.classList.add('user-name');
+                        userName.textContent = username;
+
+                        let userStatus = document.createElement('div');
+                        userStatus.classList.add('user-status');
+                        userStatus.textContent = 'Online';
+
+                        let lastMessage = document.createElement('div');
+                        lastMessage.classList.add('last-message');
+                        lastMessage.textContent = getLastMessageChatRoom;
+                        console.log(getLastMessageChatRoom);
+
+                        userInfo.appendChild(userName);
+                        userInfo.appendChild(userStatus);
+                        userInfo.appendChild(lastMessage);
+
+                        userItem.appendChild(userAvatar);
+                        userItem.appendChild(userInfo);
+
+                        userItem.setAttribute('data-userid', userDTO.id);
                         userItem.addEventListener('click', function () {
-                            openChat(userItem.textContent, userItem.getAttribute('data-userid'));
+                            openChat(userName.textContent, userItem.getAttribute('data-userid'));
                         });
+
                         userList.appendChild(userItem);
                     });
+
+                    loadLastMessages();
                 })
-                .catch(error => console.error('ошибка получения списка пользователей:', error));
+                .catch(error => console.error('Ошибка получения списка пользователей:', error));
+        }
+
+        let getLastMessageChatRoom;
+
+        function loadLastMessages() {
+            fetch('/list/last-messages')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(lastMessages => {
+                    console.log('Last messages:', lastMessages);
+
+                    lastMessages.forEach(chatRoom => {
+                        const userId = chatRoom.chatRoomId;
+                        const lastMessageText = chatRoom.lastMessage.text;
+                        const userItem = document.querySelector(`.user-item[data-userid='${userId}']`);
+
+                        if (userItem) {
+                            const lastMessageElement = userItem.querySelector('.last-message');
+                            lastMessageElement.textContent = lastMessageText;
+                        }
+                    });
+                })
+                .catch(error => console.error('Ошибка получения последних сообщений:', error));
+        }
+
+        function getRandomColor() {
+            const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#33FFF5', '#FFA533'];
+            return colors[Math.floor(Math.random() * colors.length)];
         }
 
         let currentSubscription = null;
@@ -172,7 +585,7 @@
                 url: '/generate-chat-id',
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ senderId: $("#sender-id").val(), recipientId: newRecipientId, recipientUsername: newRecipientUsername }),
+                data: JSON.stringify({ senderId: $("#sender-id"), recipientId: newRecipientId, recipientUsername: newRecipientUsername }),
                 success: function(response) {
                     const newChatRoomId = response.chatId;
                     if (newChatRoomId !== currentChatRoomId) {
@@ -198,20 +611,16 @@
                     chatWindow.setAttribute('data-recipient-id', newRecipientId);
                     chatWindow.setAttribute('data-chat-room-id', newChatRoomId);
                     chatWindow.querySelector('.card-footer').style.display = 'block';
-                    chatWindow.querySelector('.card-body').innerHTML = '';
-
-                    $("#chat").data("recipient-id", newRecipientId);
-                    $("#chat").data("chat-room-id", newChatRoomId);
+                    chatWindow.querySelector('.messages-container').innerHTML = '';
 
                     loadChatHistory(newChatRoomId);
-                    loadAllMessages(newChatRoomId);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Ошибка получения идентификатора чата:', error);
                 }
             });
         }
-        function loadAllMessages(chatRoomId) {
+
+        function loadChatHistory(chatRoomId) {
+            const messageContainer = $("#messages-container");
+            messageContainer.empty();
             fetch('/list/' + chatRoomId)
                 .then(response => response.json())
                 .then(messages => {
@@ -221,20 +630,19 @@
                 })
                 .catch(error => console.error('Ошибка получения сообщений чата:', error));
         }
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $("#send-button").click(function() {
-            let text = $("#user-message").val();
-            let recipientId = $("#chat").data("recipient-id");
-            let senderId = $("#sender-id").val();
-            let chatRoomId = $("#chat").data("chat-room-id");
-            let timestamp = $("#user-message").val();
-            sendMessage(senderId, recipientId, text, chatRoomId, timestamp);
-            $("#user-message").val("");
+
+        $(document).ready(function() {
+            $("#send-button").click(function() {
+                let text = $("#user-message").val();
+                let recipientId = $("#chat").data("recipient-id");
+                let senderId = $("#sender-id").val();
+                let chatRoomId = $("#chat").data("chat-room-id");
+                let timestamp = new Date().toISOString();
+                sendMessage(senderId, recipientId, text, chatRoomId, timestamp);
+                $("#user-message").val("");
+            });
         });
     });
-</script>
+</script>-->
 </body>
 </html>

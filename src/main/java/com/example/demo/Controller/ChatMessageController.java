@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DTO.ChatRoomLastMessageDTO;
 import com.example.demo.Impl.ChatMessageService;
 import com.example.demo.Model.ChatMessage;
 import lombok.AllArgsConstructor;
@@ -22,5 +23,17 @@ public class ChatMessageController {
     public ResponseEntity<List<ChatMessage>> getChatMessage(@PathVariable String chatRoomId) {
         List<ChatMessage> messages = chatMessageService.getChatMessagesByChatRoomId(chatRoomId);
         return ResponseEntity.ok(messages);
+    }
+
+    @GetMapping("/{chatRoomId}/last")
+    public ResponseEntity<ChatMessage> getLastChatMessage(@PathVariable String chatRoomId) {
+        ChatMessage lastMessage = chatMessageService.getLastChatMessageByChatRoomId(chatRoomId);
+        return ResponseEntity.ok(lastMessage);
+    }
+
+    @RequestMapping("/last-messages")
+    public ResponseEntity<List<ChatRoomLastMessageDTO>> getAllLastChatMessages() {
+        List<ChatRoomLastMessageDTO> lastMessages = chatMessageService.getAllChatRoomsWithLastMessages();
+        return ResponseEntity.ok(lastMessages);
     }
 }

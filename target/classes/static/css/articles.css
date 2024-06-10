@@ -1,12 +1,12 @@
 
 .mini-profile-block {
     display: flex;
-    align-items: center; /* Центрирование по вертикали */
-    margin-top: 20px; /* Отступ сверху */
+    align-items: center;
+    margin-top: 20px;
 }
 
 .user-login {
-    margin-left: 10px; /* или другое значение, чтобы установить нужный отступ между иконкой и именем пользователя */
+    margin-left: 10px;
 }
 
 .category-container {
@@ -14,8 +14,8 @@
     padding: 10px;
     border-radius: 5px;
     color: white;
-    float: left; /* Выравнивание блока с темами по левому краю */
-    margin-right: 20px; /* Отступ справа для разделения блоков */
+    float: left;
+    margin-right: 20px;
 }
 
 .category-link {
@@ -75,20 +75,19 @@
     text-decoration: none;
 }
 
-/* Стили для вывода статей */
 .article-container {
-    float: left; /* Помещение блока со статьями слева от блока с темами */
-    width: calc(100% - 300px); /* ширина блока со статьями */
+    float: left;
+    width: calc(100% - 300px);
 }
 
 /*
 .search-field {
     width: calc(100% - 60px);
-    margin-bottom: 20px; !* Отступ снизу для разделения блоков *!
+    margin-bottom: 20px;
 }
 
 .mini-profile-block {
-    margin-left: auto; !* Помещение блока с минипрофилем справа *!
+    margin-left: auto;
 }*/
 .media {
     padding-bottom: 5px;

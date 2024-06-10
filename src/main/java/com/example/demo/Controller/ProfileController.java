@@ -35,12 +35,9 @@ public class ProfileController {
     public String profilePage(Model model) {
         User user = userService.authUser();
         boolean isUserOnline = userService.isUserOnline();
-        // Получаем список новостей пользователя
-        List<News> userNews = newsService.getUserNews(user.getId()); // Замените на ваш метод
-
-        // Для каждой новости получаем список комментариев
+        List<News> userNews = newsService.getUserNews(user.getId());
         for (News news : userNews) {
-            List<Comments> comments = commentsService.getCommentsForNews(news.getId()); // Замените на ваш метод
+            List<Comments> comments = commentsService.getCommentsForNews(news.getId());
             news.setCommentsNews(comments);
 
         }

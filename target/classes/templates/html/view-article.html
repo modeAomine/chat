@@ -17,7 +17,6 @@
     <div class="media-body mt-3">
       <p th:text="${article.description}"></p>
       <p th:text="${article.tags}"></p>
-      <!-- Поле для написания комментария -->
       <form th:action="@{/comment/save}" method="post">
         <input type="hidden" name="articleId" th:value="${article.id}">
         <div class="form-group">

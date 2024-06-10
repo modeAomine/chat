@@ -50,15 +50,12 @@ public class CommentsService {
     }
 
     public void deleteComment(Long commentId) {
-        // Находим комментарий по его идентификатору
         Optional<Comments> optionalComment = commentsRepo.findById(commentId);
         if (optionalComment.isPresent()) {
             Comments comment = optionalComment.get();
-            // Проверяем, не является ли содержимое комментария пустым или состоящим только из пробелов
             if (comment.getContent().isBlank()) {
                 throw new IllegalArgumentException("Comment is empty or consists only of whitespace");
             }
-            // Удаляем комментарий
             commentsRepo.delete(comment);
         } else {
             throw new IllegalArgumentException("Comment not found with id: " + commentId);

@@ -20,14 +20,13 @@
                 object-fit: cover;"
                          type="image/x-icon">
                 </div>
-                <!-- Кнопка открытия модального окна (скрытая) -->
                 <button type="button" class="avatar-modal-trigger" data-toggle="modal" data-target="#avatarModal"
                         style="position: absolute; top: 5%; left: 5%; width: 50%; height: 55%; opacity: 0;"></button>
             </div>
         </div>
         <div class="profile-info-block text-white">
             <div class="profile-details text-center mt-3">
-                <!-- Разделяющая линия -->
+
                 <div class="user-info">
                     <span class="user-login" th:text="${user.username}">john.doe</span>
                     <span class="last-active-time" th:text="${#dates.format(user.lastActive, 'dd-MM-yyyy HH:mm:ss')}">N/A</span>
@@ -63,7 +62,7 @@
             </span>
                     </p>
                 </nav>
-                <hr class="separator-line my-4"> <!-- Разделяющая линия -->
+                <hr class="separator-line my-4">
             </div>
         </div>
 
@@ -181,15 +180,12 @@
                 <form sec:authorize="${#authorization.expression('isAuthenticated()')}"
                       th:action="@{/settings/updateAvatar}" method="post" enctype="multipart/form-data">
                     <input th:field="${user.id}" type="hidden">
-                    <!-- Предпросмотр текущего аватара -->
                     <div class="avatar-container" style="height: 150px; width: 150px">
                         <img class="avatar-preview" id="avatarPreview" th:src="@{'/uploads/' + ${user.filename}}"
                              alt="Avatar Preview">
                     </div>
-                    <!-- Кнопка выбора файла -->
                     <label class="btn btn-primary" for="avatar-upload">Загрузить новый аватар</label>
                     <input id="avatar-upload" type="file" th:field="${user.filename}" style="display: none;">
-                    <!-- Кнопка Сохранить -->
                     <button type="submit" class="btn btn-custom" style="width: 100%; margin-top: 5px;">Сохранить
                     </button>
                 </form>

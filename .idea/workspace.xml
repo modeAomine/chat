@@ -5,23 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="git init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/NewsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/TypingStatusController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/ChatRoomLastMessageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/MessageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/TypingStatusMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatMessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatMessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/Comments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CommentsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/CommentsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/NewsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/NewsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatMessageRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatMessageRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/exception/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/add-category-in-articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/add-category-in-articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Component/CurrentUserUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Component/CurrentUserUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/FriendsAndSubscribeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Controller/FriendsAndSubscribeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/ArticlesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/ArticlesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/CommentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/CommentsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/SubscriptionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/Impl/SubscriptionImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-article.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-article.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-articles-category.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-articles-category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,6 +389,8 @@
       <workItem from="1715786093356" duration="23000" />
       <workItem from="1715786130685" duration="3817000" />
       <workItem from="1715789957058" duration="4016000" />
+      <workItem from="1715852814774" duration="599000" />
+      <workItem from="1718057439635" duration="934000" />
     </task>
     <servers />
   </component>

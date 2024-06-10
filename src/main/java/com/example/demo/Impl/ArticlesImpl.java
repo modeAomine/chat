@@ -29,9 +29,7 @@ public class ArticlesImpl {
         if (existingUser != null && existingCategory != null) {
             articles.setUser(existingUser);
             articles.setCategory(existingCategory);
-
             try {
-                // Сохранение файла
                 String filename = fileStorage.storeFile(file);
                 articles.setArticlesFileName(filename);
             } catch (FileStorageException ex) {
