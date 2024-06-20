@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="git init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/app_jar/app.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/app-0.0.1-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/app-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Component/CurrentUserUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/Config/ChatRequest.class" beforeDir="false" />
@@ -253,10 +250,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.StarterWebApp">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -494,7 +489,8 @@
       <workItem from="1718533282380" duration="156000" />
       <workItem from="1718655213886" duration="993000" />
       <workItem from="1718908739658" duration="5276000" />
-      <workItem from="1718914318949" duration="1673000" />
+      <workItem from="1718914318949" duration="2444000" />
+      <workItem from="1718916774800" duration="365000" />
     </task>
     <servers />
   </component>
