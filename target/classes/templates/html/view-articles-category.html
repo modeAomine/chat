@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Articles</title>
+<head th:replace="~{fragments/head :: head}">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/articles.css}">
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+<div class="container mt-5">
+  <div class="category-container">
+    <h5>Основные темы</h5>
+    <div th:each="category : ${categories}" class="category-link">
+      <a th:href="@{/articles-in-category/{categoryId}(categoryId=${category.id})}">
+        <span class="category-title" th:text="${category.name}"></span>
+      </a>
+    </div>
+
+    <h6>Тематическая категория</h6>
+
+    <div class="mini-profile-block mt-3">
+      <img rel="icon" th:src="@{'/uploads/' + ${user.filename}}" type="image/x-icon"
+           class="mini-profile-avatar rounded-circle"
+           style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%;">
+      <span class="user-login" th:text="${user.username}"></span>
+    </div>
+  </div>
+
+  <div class="article-container">
+    <ul class="list-unstyled">
+      <li th:each="article : ${articles}" class="media">
+        <div class="media-body">
+          <div class="row">
+            <div class="col-6">
+              <a th:href="@{/articles/articles-in-category/{categoryId}/article/{articleId}(categoryId=${article.category.id}, articleId=${article.id})}">
+                <h5 class="mt-0 mb-1" th:text="${article.title}"></h5>
+              </a>
+              <p>Автор: <span th:text="${article.user.username}"></span></p>
+            </div>
+            <div class="col-6 text-right">
+              <div class="mini-profile-block">
+                <img th:src="@{'/uploads/' + ${article.user.filename}}" type="image/x-icon"
+                     class="mini-profile-avatar rounded-circle"
+                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
+                <span class="user-login" th:text="${article.user.username}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script th:src="@{/js/articles.js}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<title th:text="${article.title}"></title>
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+<div class="container mt-5">
+  <div class="article-container">
+    <h1 th:text="${article.title}" class="mt-0"></h1>
+    <div class="media">
+      <a class="enlarge" th:if="${article.articlesFileName != null && !article.articlesFileName.isBlank() || !article.articlesFileName.isEmpty()}">
+        <span th:each="articlesFileName : ${article.articlesFileName}">
+          <img th:src="@{'/uploads/' + ${article.articlesFileName}}" class="mr-3 article-image" style="width: 100%;">
+        </span>
+      </a>
+    </div>
+    <div class="media-body mt-3">
+      <p th:text="${article.description}"></p>
+      <p th:text="${article.tags}"></p>
+      <form th:action="@{/comment/save}" method="post">
+        <input type="hidden" name="articleId" th:value="${article.id}">
+        <div class="form-group">
+          <label for="comment">Комментарий:</label>
+          <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-dark">Отправить</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.enlarge').click(function(e){
+      e.preventDefault();
+      $(this).find('.article-image').toggleClass('enlarged');
+    });
+  });
+</script>
+</body>
+</html>

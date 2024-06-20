@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header th:replace="~{fragments/head :: head}"></header>
+<body>
+<table class="table">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>user ID</th>
+    <th>News ID</th>
+    <th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="comments : ${comment}">
+    <td th:text="${comments.id}"></td>
+    <td th:text="${comments.userId.id}"></td>
+    <td th:text="${comments.newsId.id}"></td>
+    <td th:text="${comments.content}"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
