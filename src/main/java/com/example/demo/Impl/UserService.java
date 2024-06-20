@@ -232,7 +232,7 @@ public class UserService {
             throw new IllegalArgumentException("Пользователь с таким логином уже зарегистрирован!");
         }
         user.setRegistrationDate(new Date());
-        user.setRoles(Collections.singleton(Role.ADMIN));
+        user.setRoles(Collections.singleton(Role.USER));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
     }
