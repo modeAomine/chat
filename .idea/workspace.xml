@@ -5,41 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb511b3-b18f-4277-8918-f35d6405990a" name="Changes" comment="git init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/TypingStatusController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/ChatRoomLastMessageDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/MessageDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DTO/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Model/TypingStatusMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Config/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ChatMessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ArticlesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/ChatMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/CommentsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Impl/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatMessageRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Repo/ChatMessageRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/articles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/exception/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/exception/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/Other.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/add-category-in-articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/add-category-in-articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/articles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/setting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-article.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-articles-category.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-articles-category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/html/view-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/html/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/html/chat.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +84,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d2a57dc1d883fd21fb9951699df71cc7&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -390,7 +364,13 @@
       <workItem from="1715786130685" duration="3817000" />
       <workItem from="1715789957058" duration="4016000" />
       <workItem from="1715852814774" duration="599000" />
-      <workItem from="1718057439635" duration="934000" />
+      <workItem from="1718057439635" duration="1583000" />
+      <workItem from="1718187171272" duration="12000" />
+      <workItem from="1718187239869" duration="2610000" />
+      <workItem from="1718445581054" duration="3946000" />
+      <workItem from="1718533282380" duration="156000" />
+      <workItem from="1718655213886" duration="993000" />
+      <workItem from="1718908739658" duration="1754000" />
     </task>
     <servers />
   </component>

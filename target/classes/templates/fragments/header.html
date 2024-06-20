@@ -80,4 +80,12 @@
       </div>
     </div>
   </nav>
+  <script>
+    $(document).ready(function () {
+      $('.cursor-pointer').click(function () {
+        let targetId = $(this).attr('data-target');
+        $('#' + targetId).toggle();
+      });
+    });
+  </script>
 </header>
