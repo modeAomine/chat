@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <style>
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #000000;
+        }
+        .navbar-dark .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+            background-color: #333333D8;
+        }
+        .navbar-dark .navbar-nav .nav-item.dropdown .dropdown-item {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-item.dropdown .dropdown-item:hover {
+            background-color: #333333D8;
+        }
+        body {
+            background-color: rgba(51, 51, 51, 0.85);
+            color: #fff;
+        }
+        .form-control {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+        }
+        .btn-primary {
+            background-color: #16a085;
+            border-color: #16a085;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #138d6a;
+            border-color: #138d6a;
+        }
+        .profile-background-block {
+            background-color: #333333D8;
+        }
+        .profile-background-block input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            background-color: #303030;
+        }
+        .custom-submit-button {
+            width: 100%;
+            margin-top: 5px;
+            background-color: #16a085;
+            border-color: #16a085;
+            color: #fff;
+        }
+        .custom-submit-button:hover {
+            background-color: #138d6a;
+            border-color: #138d6a;
+        }
+    </style>
+</head>
+<body>
+<header th:replace="~{fragments/header :: header}"></header>
+<div class="container">
+    <h1>User Settings</h1>
+    <form id="updateDiscordForm" th:action="@{/settings/updateUser}" method="post">
+        <input th:field="${user.id}" type="hidden">
+        <input th:field="${user.filename}" type="hidden">
+
+        <div class="form-group">
+            <label for="login">Login: </label>
+            <input th:field="${user.username}" id="login" type="text" class="form-control" style="max-width: 300px;">
+        </div>
+
+        <div class="form-group">
+            <label for="discord">Discord: </label>
+            <input th:field="${user.discord}" id="discord" type="text" class="form-control" style="max-width: 300px;">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <input th:field="${user.email}" id="email" type="email" class="form-control" style="max-width: 300px;">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input th:field="${user.name}" id="name" type="text" class="form-control" style="max-width: 300px;">
+        </div>
+        <div class="form-group">
+            <label for="vk">ВКонтакте: </label>
+            <input th:field="${user.VK}" id="vk" type="text" class="form-control" style="max-width: 300px;">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <div class="col-md-6 profile-background-container" sec:authorize="hasRole('Администратор')">
+        <div class="profile-background-block" style="background-color: #333333D8;">
+            <form sec:authorize="${#authorization.expression('isAuthenticated()')}" id="updateUserProfileBackground" th:action="@{/settings/updateProfileBackground}" method="post" enctype="multipart/form-data" style="margin: 10px;">
+                <input th:field="${user.id}" type="hidden">
+                <input type="file" th:field="${user.profileBackgroundFilename}" style="width: 100%; padding: 5px; box-sizing: border-box; background-color: #303030;">
+                <button type="submit" class="custom-submit-button" style="width: 100%; margin-top: 5px;">Сохранить фон профиля</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+</html>
