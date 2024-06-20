@@ -36,11 +36,11 @@ public class SpringSecurity {
                 .csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/registration"
+                                ,"/settings/updateAvatar"
                                 ,"/send"
                                 ,"/img/**"
                                 ,"/css/**"
                                 ,"/js/**"
-                                ,"/php/**"
                                 ,"/uploads/**"
                                 ,"/fragments/**")
                                 .permitAll()
